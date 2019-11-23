@@ -33,6 +33,9 @@
     <Content Include="PopulationYield.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="TradeChanges.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="YieldChanges.sql">
       <SubType>Content</SubType>
     </Content>
