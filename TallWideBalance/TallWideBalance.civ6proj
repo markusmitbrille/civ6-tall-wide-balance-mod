@@ -21,13 +21,16 @@
 </Associations>]]></AssociationData>
     <AssemblyName>TallWideBalance</AssemblyName>
     <RootNamespace>TallWideBalance</RootNamespace>
-    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File>PopulationYield.sql</File><File>YieldChanges.sql</File><File>CivilizationChanges.sql</File></UpdateDatabase></InGameActions>]]></InGameActionData>
+    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File>PopulationYield.sql</File><File>YieldChanges.sql</File><File>CivilizationChanges.sql</File><File>GlobalParameterChanges.sql</File><File>TradeChanges.sql</File></UpdateDatabase></InGameActions>]]></InGameActionData>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="CivilizationChanges.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="GlobalParameterChanges.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="PopulationYield.sql">
