@@ -7,14 +7,57 @@
 -- these yields either scale linearly or exponentially
 -- credit goes to p0kiehl for a SQL reference, Chrisy15 for helping him
 
--- create temporary table for population sizes
-CREATE TABLE IF NOT EXISTS PopulationReference (
+-- temporary table for population sizes
+CREATE TABLE IF NOT EXISTS Mak_PopulationSizes (
  Size INT
 );
 
 -- insert values 1 to 50
 WITH RECURSIVE t(val) AS (SELECT 1 UNION ALL SELECT val + 1 FROM t LIMIT 50) 
-INSERT INTO PopulationReference (Size) SELECT val FROM t;
+INSERT INTO Mak_PopulationSizes (Size) SELECT val FROM t;
+
+-- temporary table for building tiers
+CREATE TABLE IF NOT EXISTS Mak_BuildingTiers (
+ Name TEXT,
+ Lin REAL,
+ Exp REAL
+);
+
+INSERT INTO Mak_BuildingTiers (Name, Lin, Exp)
+VALUES
+ ('BUILDING_LIBRARY',					0.0,	0.0),
+ ('BUILDING_UNIVERSITY',				0.0,	0.0),
+ ('BUILDING_MADRASA',					0.0,	0.0),
+ ('BUILDING_RESEARCH_LAB',				0.0,	0.0),
+ ('BUILDING_AMPHITHEATER',				0.0,	0.0),
+ ('BUILDING_MUSEUM_ART',				0.0,	0.0),
+ ('BUILDING_MUSEUM_ARTIFACT',			0.0,	0.0),
+ ('BUILDING_BROADCAST_CENTER',			0.0,	0.0),
+ ('BUILDING_FILM_STUDIO',				0.0,	0.0),
+ ('BUILDING_SHRINE',					0.0,	0.0),
+ ('BUILDING_TEMPLE',					0.0,	0.0),
+ ('BUILDING_STAVE_CHURCH',				0.0,	0.0),
+ ('BUILDING_PRASAT',					0.0,	0.0),
+ ('BUILDING_CATHEDRAL',					0.0,	0.0),
+ ('BUILDING_GURDWARA',					0.0,	0.0),
+ ('BUILDING_MEETING_HOUSE',				0.0,	0.0),
+ ('BUILDING_MOSQUE',					0.0,	0.0),
+ ('BUILDING_PAGODA',					0.0,	0.0),
+ ('BUILDING_SYNAGOGUE',					0.0,	0.0),
+ ('BUILDING_WAT',						0.0,	0.0),
+ ('BUILDING_STUPA',						0.0,	0.0),
+ ('BUILDING_DAR_E_MEHR',				0.0,	0.0),
+ ('BUILDING_MARKET',					0.0,	0.0),
+ ('BUILDING_SUKIENNICE',				0.0,	0.0),
+ ('BUILDING_BANK',						0.0,	0.0),
+ ('BUILDING_GRAND_BAZAAR',				0.0,	0.0),
+ ('BUILDING_STOCK_EXCHANGE',			0.0,	0.0),
+ ('BUILDING_WORKSHOP',					0.0,	0.0),
+ ('BUILDING_FACTORY',					0.0,	0.0),
+ ('BUILDING_ELECTRONICS_FACTORY',		0.0,	0.0),
+ ('BUILDING_COAL_POWER_PLANT',			0.0,	0.0),
+ ('BUILDING_FOSSIL_FUEL_POWER_PLANT',	0.0,	0.0),
+ ('BUILDING_POWER_PLANT',				0.0,	0.0);
 
 -----------
 -- Types --
@@ -23,6 +66,7 @@ INSERT INTO PopulationReference (Size) SELECT val FROM t;
 INSERT INTO Types (Type, Kind)
 VALUES 
  ('MAK_MODIFIER_BASE_YIELD_FROM_POPULATION', 'KIND_MODIFIER'),
+ ('MAK_MODIFIER_LINEAR_YIELD_FROM_POPULATION', 'KIND_MODIFIER'),
  ('MAK_MODIFIER_EXPONENTIAL_YIELD_FROM_POPULATION', 'KIND_MODIFIER');
 
 ----------------------
@@ -30,145 +74,99 @@ VALUES
 ----------------------
 
 INSERT INTO DynamicModifiers (ModifierType, CollectionType, EffectType)
-VALUES ('MAK_MODIFIER_BASE_YIELD_FROM_POPULATION', 'COLLECTION_OWNER', 'EFFECT_ADJUST_CITY_YIELD_PER_POPULATION');
-
-INSERT INTO DynamicModifiers (ModifierType, CollectionType, EffectType)
-VALUES ('MAK_MODIFIER_EXPONENTIAL_YIELD_FROM_POPULATION', 'COLLECTION_OWNER', 'EFFECT_ADJUST_CITY_YIELD_PER_POPULATION');
+VALUES 
+ ('MAK_MODIFIER_BASE_YIELD_FROM_POPULATION', 'COLLECTION_OWNER', 'EFFECT_ADJUST_CITY_YIELD_PER_POPULATION'),
+ ('MAK_MODIFIER_LINEAR_YIELD_FROM_POPULATION', 'COLLECTION_OWNER', 'EFFECT_ADJUST_CITY_YIELD_PER_POPULATION'),
+ ('MAK_MODIFIER_EXPONENTIAL_YIELD_FROM_POPULATION', 'COLLECTION_OWNER', 'EFFECT_ADJUST_CITY_YIELD_PER_POPULATION');
 
 ------------------
 -- Requirements --
 ------------------
 
--- generate all pop requirements through the reference table
+-- pop requirements
 INSERT INTO Requirements (RequirementId, RequirementType)
-SELECT 'MAK_REQUIRES_POPULATION_'||Size, 'REQUIREMENT_CITY_HAS_X_POPULATION' FROM PopulationReference;
+SELECT 'MAK_REQUIRES_POPULATION_'||Size, 'REQUIREMENT_CITY_HAS_X_POPULATION' FROM Mak_PopulationSizes;
+
+-- TODO: district requirements
 
 -- buildings requirements
 INSERT INTO Requirements (RequirementId, RequirementType)
-VALUES 
-	('MAK_REQUIRES_SCIENCE_TIER_1',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_SCIENCE_TIER_2_1',		'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_SCIENCE_TIER_2_2',		'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_SCIENCE_TIER_3',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_CULTURE_TIER_1',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_CULTURE_TIER_2_1',		'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_CULTURE_TIER_2_2',		'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_CULTURE_TIER_3_1',		'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_CULTURE_TIER_3_2',		'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_1',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_2_1',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_2_2',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_2_3',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_3_1',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_3_2',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_3_3',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_3_4',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_3_5',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_3_6',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_3_7',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_3_8',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_FAITH_TIER_3_9',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_PORT_TIER_1',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_PORT_TIER_2',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_PORT_TIER_3',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_GOLD_TIER_1_2',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_GOLD_TIER_1_3',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_GOLD_TIER_2_2',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_GOLD_TIER_2_3',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_GOLD_TIER_3_2',			'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_PRODUCTION_TIER_1',		'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_PRODUCTION_TIER_2_1',	'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_PRODUCTION_TIER_2_2',	'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_PRODUCTION_TIER_3_1',	'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_PRODUCTION_TIER_3_2',	'REQUIREMENT_CITY_HAS_BUILDING'),
-	('MAK_REQUIRES_PRODUCTION_TIER_3_3',	'REQUIREMENT_CITY_HAS_BUILDING');
+SELECT 'MAK_REQUIRES_'||Name, 'REQUIREMENT_CITY_HAS_BUILDING' FROM Mak_BuildingTiers;
 
 --------------------------
 -- RequirementArguments --
 --------------------------
 
--- generate all arguments for pure pop requirements
+-- arguments for pop requirements
 INSERT INTO RequirementArguments (RequirementId, Name, Value)
-SELECT 'MAK_REQUIRES_POPULATION_'||Size, 'Amount', Size FROM PopulationReference;
+SELECT 'MAK_REQUIRES_POPULATION_'||Size, 'Amount', Size FROM Mak_PopulationSizes;
+
+-- TODO: arguments for district requirements
 
 -- arguments for building requirements
 INSERT INTO RequirementArguments (RequirementId, Name, Value)
-VALUES 
-	('MAK_REQUIRES_SCIENCE_TIER_1',			'BuildingType',	'BUILDING_LIBRARY'),
-	('MAK_REQUIRES_SCIENCE_TIER_2_1',		'BuildingType',	'BUILDING_UNIVERSITY'),
-	('MAK_REQUIRES_SCIENCE_TIER_2_2',		'BuildingType',	'BUILDING_MADRASA'),
-	('MAK_REQUIRES_SCIENCE_TIER_3',			'BuildingType',	'BUILDING_RESEARCH_LAB'),
-	('MAK_REQUIRES_CULTURE_TIER_1',			'BuildingType',	'BUILDING_AMPHITHEATER'),
-	('MAK_REQUIRES_CULTURE_TIER_2_1',		'BuildingType',	'BUILDING_MUSEUM_ART'),
-	('MAK_REQUIRES_CULTURE_TIER_2_2',		'BuildingType',	'BUILDING_MUSEUM_ARTIFACT'),
-	('MAK_REQUIRES_CULTURE_TIER_3_1',		'BuildingType',	'BUILDING_BROADCAST_CENTER'),
-	('MAK_REQUIRES_CULTURE_TIER_3_2',		'BuildingType',	'BUILDING_FILM_STUDIO'),
-	('MAK_REQUIRES_FAITH_TIER_1',			'BuildingType',	'BUILDING_SHRINE'),
-	('MAK_REQUIRES_FAITH_TIER_2_1',			'BuildingType',	'BUILDING_TEMPLE'),
-	('MAK_REQUIRES_FAITH_TIER_2_2',			'BuildingType',	'BUILDING_STAVE_CHURCH'),
-	('MAK_REQUIRES_FAITH_TIER_2_3',			'BuildingType',	'BUILDING_PRASAT'),
-	('MAK_REQUIRES_FAITH_TIER_3_1',			'BuildingType',	'BUILDING_CATHEDRAL'),
-	('MAK_REQUIRES_FAITH_TIER_3_2',			'BuildingType',	'BUILDING_GURDWARA'),
-	('MAK_REQUIRES_FAITH_TIER_3_3',			'BuildingType',	'BUILDING_MEETING_HOUSE'),
-	('MAK_REQUIRES_FAITH_TIER_3_4',			'BuildingType',	'BUILDING_MOSQUE'),
-	('MAK_REQUIRES_FAITH_TIER_3_5',			'BuildingType',	'BUILDING_PAGODA'),
-	('MAK_REQUIRES_FAITH_TIER_3_6',			'BuildingType',	'BUILDING_SYNAGOGUE'),
-	('MAK_REQUIRES_FAITH_TIER_3_7',			'BuildingType',	'BUILDING_WAT'),
-	('MAK_REQUIRES_FAITH_TIER_3_8',			'BuildingType',	'BUILDING_STUPA'),
-	('MAK_REQUIRES_FAITH_TIER_3_9',			'BuildingType',	'BUILDING_DAR_E_MEHR'),
-	('MAK_REQUIRES_PORT_TIER_1',			'BuildingType',	'BUILDING_LIGHTHOUSE'),
-	('MAK_REQUIRES_PORT_TIER_2',			'BuildingType',	'BUILDING_SHIPYARD'),
-	('MAK_REQUIRES_PORT_TIER_3',			'BuildingType',	'BUILDING_SEAPORT'),
-	('MAK_REQUIRES_GOLD_TIER_1_2',			'BuildingType',	'BUILDING_MARKET'),
-	('MAK_REQUIRES_GOLD_TIER_1_3',			'BuildingType',	'BUILDING_SUKIENNICE'),
-	('MAK_REQUIRES_GOLD_TIER_2_2',			'BuildingType',	'BUILDING_BANK'),
-	('MAK_REQUIRES_GOLD_TIER_2_3',			'BuildingType',	'BUILDING_GRAND_BAZAAR'),
-	('MAK_REQUIRES_GOLD_TIER_3_2',			'BuildingType',	'BUILDING_STOCK_EXCHANGE'),
-	('MAK_REQUIRES_PRODUCTION_TIER_1',		'BuildingType',	'BUILDING_WORKSHOP'),
-	('MAK_REQUIRES_PRODUCTION_TIER_2_1',	'BuildingType',	'BUILDING_FACTORY'),
-	('MAK_REQUIRES_PRODUCTION_TIER_2_2',	'BuildingType',	'BUILDING_ELECTRONICS_FACTORY'),
-	('MAK_REQUIRES_PRODUCTION_TIER_3_1',	'BuildingType',	'BUILDING_COAL_POWER_PLANT'),
-	('MAK_REQUIRES_PRODUCTION_TIER_3_2',	'BuildingType',	'BUILDING_FOSSIL_FUEL_POWER_PLANT'),
-	('MAK_REQUIRES_PRODUCTION_TIER_3_3',	'BuildingType',	'BUILDING_POWER_PLANT');
+SELECT 'MAK_REQUIRES_'||Name, 'BuildingType', Name FROM Mak_BuildingTiers;
 
 ---------------------
 -- RequirementSets --
 ---------------------
 
--- TODO: implement requirement sets for all building/pop combinations
+-- TODO: requirement sets for districts only
+-- TODO: requirement sets for districts and pop sizes
 
+-- requirement sets for buildings only
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)
-SELECT 'MAK_REQUIRES_WORKSHOP_AND_POPULATION_'||Size, 'REQUIREMENTSET_TEST_ALL' FROM PopulationReference;
+SELECT 'MAK_REQUIRES_'||Name||'_ONLY', 'REQUIREMENTSET_TEST_ALL' FROM Mak_BuildingTiers;
+
+-- requirment sets for buildings and pop sizes
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)
+SELECT 'MAK_REQUIRES_'||Name||'_AND_POPULATION_'||Size, 'REQUIREMENTSET_TEST_ALL' FROM Mak_BuildingTiers, Mak_PopulationSizes;
 
 --------------------------------
 -- RequirementSetRequirements --
 --------------------------------
 
--- TODO: implement requirement set requirements for all building/pop combinations
+-- TODO: add district requirements to district only requirement sets
+-- TODO: add district and pop size requirements to district and pop size requirement sets
 
+-- add building requirements to building only requirement sets
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
-SELECT 'MAK_REQUIRES_WORKSHOP_AND_POPULATION_'||Size, 'MAK_REQUIRES_POPULATION_'||Size FROM PopulationReference;
+SELECT 'MAK_REQUIRES_'||Name||'_ONLY', 'MAK_REQUIRES_'||Name FROM Mak_BuildingTiers;
 
+-- add pop size requirements to building and pop size requirement sets
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
-SELECT 'MAK_REQUIRES_WORKSHOP_AND_POPULATION_'||Size, 'MAK_REQUIRES_PRODUCTION_TIER_1' FROM PopulationReference;
+SELECT 'MAK_REQUIRES_'||Name||'_AND_POPULATION_'||Size, 'MAK_REQUIRES_POPULATION_'||Size FROM Mak_BuildingTiers, Mak_PopulationSizes;
+
+-- add building requirements to building and pop size requirement sets
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+SELECT 'MAK_REQUIRES_'||Name||'_AND_POPULATION_'||Size, 'MAK_REQUIRES_'||Name FROM Mak_BuildingTiers, Mak_PopulationSizes;
 
 ---------------
 -- Modifiers --
 ---------------
 
--- TODO: implement modifiers for all yields
-
+-- base modifiers
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
 VALUES ('MAK_BASE_PRODUCTION_FROM_POPULATION', 'MAK_MODIFIER_BASE_YIELD_FROM_POPULATION', NULL);
 
+-- TODO: other base modifiers
+
+-- TODO: linear district modifiers
+-- TODO: exponential district modifiers
+
+-- linear building modifiers
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
-SELECT 'MAK_PRODUCTION_FROM_WORKSHOP_AND_'||Size||'_POPULATION', 'MAK_MODIFIER_EXPONENTIAL_YIELD_FROM_POPULATION', 'MAK_REQUIRES_WORKSHOP_AND_POPULATION_'||Size FROM PopulationReference;
+SELECT 'MAK_'||Name||'_LINEAR_YIELD', 'MAK_MODIFIER_LINEAR_YIELD_FROM_POPULATION', 'MAK_REQUIRES_'||Name||'_ONLY' FROM Mak_BuildingTiers;
+
+-- exponential building modifiers
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
+SELECT 'MAK_'||Name||'_AND_'||Size||'_POPULATION_YIELD', 'MAK_MODIFIER_EXPONENTIAL_YIELD_FROM_POPULATION', 'MAK_REQUIRES_'||Name||'_AND_POPULATION_'||Size FROM Mak_BuildingTiers, Mak_PopulationSizes;
 
 -----------------------
 -- ModifierArguments --
 -----------------------
 
--- TODO: implement modifier arguments for all yields
+-- TODO: all modifier arguments, example below
 
 INSERT INTO ModifierArguments (ModifierId, Name, Value)
 VALUES 
@@ -176,22 +174,23 @@ VALUES
  ('MAK_BASE_PRODUCTION_FROM_POPULATION', 'Amount', 0.00);
 
 INSERT INTO ModifierArguments (ModifierId, Name, Value)
-SELECT 'MAK_PRODUCTION_FROM_WORKSHOP_AND_'||Size||'_POPULATION', 'YieldType', 'YIELD_PRODUCTION' FROM PopulationReference;
+SELECT 'MAK_PRODUCTION_FROM_WORKSHOP_AND_'||Size||'_POPULATION', 'YieldType', 'YIELD_PRODUCTION' FROM Mak_PopulationSizes;
 
 INSERT INTO ModifierArguments (ModifierId, Name, Value)
-SELECT 'MAK_PRODUCTION_FROM_WORKSHOP_AND_'||Size||'_POPULATION', 'Amount', 1.00 FROM PopulationReference;
+SELECT 'MAK_PRODUCTION_FROM_WORKSHOP_AND_'||Size||'_POPULATION', 'Amount', 1.00 FROM Mak_PopulationSizes;
 
 -----------------------
 -- DistrictModifiers --
 -----------------------
 
--- TODO: apply modifiers for all yields
+-- TODO: apply all modifiers for, examples below
 
 INSERT INTO DistrictModifiers (DistrictType, ModifierId)
 VALUES ('DISTRICT_CITY_CENTER', 'MAK_BASE_PRODUCTION_FROM_POPULATION');
 
 INSERT INTO DistrictModifiers (DistrictType, ModifierId)
-SELECT 'DISTRICT_CITY_CENTER', 'MAK_PRODUCTION_FROM_WORKSHOP_AND_'||Size||'_POPULATION' FROM PopulationReference;
+SELECT 'DISTRICT_CITY_CENTER', 'MAK_PRODUCTION_FROM_WORKSHOP_AND_'||Size||'_POPULATION' FROM Mak_PopulationSizes;
 
--- drop temporary pop table
-DROP TABLE PopulationReference;
+-- drop temporary tables
+DROP TABLE Mak_PopulationSizes;
+DROP TABLE Mak_BuildingTiers;
