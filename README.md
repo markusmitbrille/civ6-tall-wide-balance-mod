@@ -1,6 +1,6 @@
-# Haphazardly Balanced
+# Haphazardly Balanced Mod
 
-As most things should be.
+Haphazardly balance, as most things should be.
 
 A Civilization VI mod that aims to make both tall and wide play-style viable and generally make the game more entertaining.
 
