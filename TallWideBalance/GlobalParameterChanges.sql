@@ -12,11 +12,11 @@
 -- yields per pop
 
 UPDATE GlobalParameters
-SET Value=50
+SET Value=10
 WHERE Name="SCIENCE_PERCENTAGE_YIELD_PER_POP";
 
 UPDATE GlobalParameters
-SET Value=50
+SET Value=30
 WHERE Name="CULTURE_PERCENTAGE_YIELD_PER_POP";
 
 -- districts
@@ -68,19 +68,19 @@ SET Value=0
 WHERE Name="CITY_HOUSING_LEFT_ZERO_GROWTH";
 
 UPDATE GlobalParameters
-SET Value=6
+SET Value=3
 WHERE Name="CITY_POPULATION_NO_WATER";
 
 UPDATE GlobalParameters
-SET Value=7
+SET Value=5
 WHERE Name="CITY_POPULATION_COAST";
 
 UPDATE GlobalParameters
-SET Value=9
+SET Value=7
 WHERE Name="CITY_POPULATION_RIVER_LAKE";
 
 UPDATE GlobalParameters
-SET Value=10
+SET Value=7
 WHERE Name="CITY_POPULATION_AQUEDUCT_MIN";
 
 UPDATE GlobalParameters
