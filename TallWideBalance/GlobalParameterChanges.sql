@@ -12,11 +12,11 @@
 -- yields per pop
 
 UPDATE GlobalParameters
-SET Value=10
+SET Value=0
 WHERE Name="SCIENCE_PERCENTAGE_YIELD_PER_POP";
 
 UPDATE GlobalParameters
-SET Value=30
+SET Value=0
 WHERE Name="CULTURE_PERCENTAGE_YIELD_PER_POP";
 
 -- districts
