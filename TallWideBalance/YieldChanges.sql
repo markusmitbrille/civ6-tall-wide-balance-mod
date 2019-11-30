@@ -6,7 +6,8 @@
 -- this file deals with changing the yields of buildings and districts
 
 -- temporary table for building yields
-CREATE TABLE IF NOT EXISTS Mak_BuildingYields (
+CREATE TABLE IF NOT EXISTS Mak_BuildingYields
+(
 	Name		TEXT,
 	Yield		TEXT,
 	Value		REAL
@@ -52,8 +53,8 @@ VALUES
 	('BUILDING_ORDU',						'YIELD_PRODUCTION',		2),
 	('BUILDING_ARMORY',						'YIELD_PRODUCTION',		5),
 	('BUILDING_MILITARY_ACADEMY',			'YIELD_PRODUCTION',		8),
-	('BUILDING_HANGAR',						'YIELD_PRODUCTION',		3),
-	('BUILDING_AIRPORT',					'YIELD_PRODUCTION',		6),
+	('BUILDING_HANGAR',						'YIELD_GOLD',			4),
+	('BUILDING_AIRPORT',					'YIELD_GOLD',			3),
 	('BUILDING_ARENA',						'YIELD_CULTURE',		1),
 	('BUILDING_TLACHTLI',					'YIELD_CULTURE',		2),
 	('BUILDING_TLACHTLI',					'YIELD_FAITH',			3),
@@ -69,10 +70,11 @@ VALUES
 	('BUILDING_SEAPORT',					'YIELD_GOLD',			2);
 
 -- temporary table for building yields when powered
-CREATE TABLE IF NOT EXISTS Mak_BuildingPowerYields (
- Name			TEXT,
- Yield			TEXT,
- Value			REAL
+CREATE TABLE IF NOT EXISTS Mak_BuildingPowerYields
+(
+	Name		TEXT,
+	Yield		TEXT,
+	Value		REAL
 );
 
 INSERT INTO Mak_BuildingPowerYields (Name, Yield, Value)
@@ -87,14 +89,16 @@ VALUES
 	('BUILDING_COAL_POWER_PLANT',			'YIELD_PRODUCTION',		9),
 	('BUILDING_FOSSIL_FUEL_POWER_PLANT',	'YIELD_PRODUCTION',		9),
 	('BUILDING_POWER_PLANT',				'YIELD_PRODUCTION',		9),
-	('BUILDING_AIRPORT',					'YIELD_PRODUCTION',		6),
+	('BUILDING_HANGAR',						'YIELD_GOLD',			3),
+	('BUILDING_AIRPORT',					'YIELD_GOLD',			6),
 	('BUILDING_STADIUM',					'YIELD_CULTURE',		3),
 	('BUILDING_AQUATICS_CENTER',			'YIELD_CULTURE',		3),
 	('BUILDING_SHOPPING_MALL',				'YIELD_GOLD',			6),
 	('BUILDING_FOOD_MARKET',				'YIELD_FOOD',			6);
 
 -- temporary table for building yields per era
-CREATE TABLE IF NOT EXISTS Mak_BuildingYieldsPerEra (
+CREATE TABLE IF NOT EXISTS Mak_BuildingYieldsPerEra
+(
 	Name		TEXT,
 	Yield		TEXT,
 	Value		REAL
@@ -107,7 +111,8 @@ VALUES
 	('BUILDING_WATER_MILL',					'YIELD_PRODUCTION',		1);
 
 -- temporary table for building yield district copies
-CREATE TABLE IF NOT EXISTS Mak_BuildingDistrictYieldCopies (
+CREATE TABLE IF NOT EXISTS Mak_BuildingDistrictYieldCopies
+(
 	Name		TEXT,
 	OldYield	TEXT,
 	NewYield	TEXT
@@ -157,7 +162,7 @@ SELECT Name, Yield, Value FROM Mak_BuildingPowerYields;
 
 -- delete dar e mehr row
 DELETE FROM Building_YieldsPerEra
-WHERE BuildingType='BUILDING_DAR_E_MEHR'
+WHERE BuildingType = 'BUILDING_DAR_E_MEHR'
 
 -- delete affected rows
 DELETE Building_YieldsPerEra
@@ -173,7 +178,7 @@ SELECT Name, Yield, Value FROM Mak_BuildingYieldsPerEra;
 
 -- delete coal power plant row
 DELETE FROM Building_YieldDistrictCopies
-WHERE BuildingType='BUILDING_COAL_POWER_PLANT'
+WHERE BuildingType = 'BUILDING_COAL_POWER_PLANT'
 
 -- delete affected rows
 DELETE Building_YieldDistrictCopies
@@ -199,13 +204,13 @@ DROP TABLE Mak_BuildingDistrictYieldCopies;
 
 -- make food market a city center building
 UPDATE Buildings
-SET PrereqDistrict='DISTRICT_CITY_CENTER'
-WHERE BuildingType='BUILDING_FOOD_MARKET';
+SET PrereqDistrict = 'DISTRICT_CITY_CENTER'
+WHERE BuildingType = 'BUILDING_FOOD_MARKET';
 
 -- make shopping mall a city center building
 UPDATE Buildings
-SET PrereqDistrict='DISTRICT_CITY_CENTER'
-WHERE BuildingType='BUILDING_SHOPPING_MALL';
+SET PrereqDistrict = 'DISTRICT_CITY_CENTER'
+WHERE BuildingType = 'BUILDING_SHOPPING_MALL';
 
 --------------------------------
 -- MutuallyExclusiveBuildings --
@@ -214,12 +219,12 @@ WHERE BuildingType='BUILDING_SHOPPING_MALL';
 -- make food market non exclusive with shopping mall
 DELETE MutuallyExclusiveBuildings
 FROM MutuallyExclusiveBuildings
-WHERE Building='BUILDING_FOOD_MARKET';
+WHERE Building = 'BUILDING_FOOD_MARKET';
 
 -- make shopping mall non exclusive with food market
 DELETE MutuallyExclusiveBuildings
 FROM MutuallyExclusiveBuildings
-WHERE Building='BUILDING_SHOPPING_MALL';
+WHERE Building = 'BUILDING_SHOPPING_MALL';
 
 -------------------
 -- Buildings_XP2 --
@@ -227,65 +232,65 @@ WHERE Building='BUILDING_SHOPPING_MALL';
 
 -- make factory require less energy
 UPDATE Buildings_XP2
-SET RequiredPower=1
-WHERE BuildingType='BUILDING_FACTORY';
+SET RequiredPower = 1
+WHERE BuildingType = 'BUILDING_FACTORY';
 
 -- make electronics factory require less energy
 UPDATE Buildings_XP2
-SET RequiredPower=1
-WHERE BuildingType='BUILDING_ELECTRONICS_FACTORY';
+SET RequiredPower = 1
+WHERE BuildingType = 'BUILDING_ELECTRONICS_FACTORY';
 
 -- make research lab require less energy
 UPDATE Buildings_XP2
-SET RequiredPower=2
-WHERE BuildingType='BUILDING_RESEARCH_LAB';
+SET RequiredPower = 2
+WHERE BuildingType = 'BUILDING_RESEARCH_LAB';
 
 -- make broadcast center require less energy
 UPDATE Buildings_XP2
-SET RequiredPower=2
-WHERE BuildingType='BUILDING_BROADCAST_CENTER';
+SET RequiredPower = 2
+WHERE BuildingType = 'BUILDING_BROADCAST_CENTER';
 
 -- make film studio require less energy
 UPDATE Buildings_XP2
-SET RequiredPower=2
-WHERE BuildingType='BUILDING_FILM_STUDIO';
+SET RequiredPower = 2
+WHERE BuildingType = 'BUILDING_FILM_STUDIO';
 
 -- make stock exchange require less energy
 UPDATE Buildings_XP2
-SET RequiredPower=2
-WHERE BuildingType='BUILDING_STOCK_EXCHANGE';
+SET RequiredPower = 2
+WHERE BuildingType = 'BUILDING_STOCK_EXCHANGE';
 
 -- make airport require more energy
 UPDATE Buildings_XP2
-SET RequiredPower=2
-WHERE BuildingType='BUILDING_AIRPORT';
+SET RequiredPower = 2
+WHERE BuildingType = 'BUILDING_AIRPORT';
 
 -- make food market require more energy
 UPDATE Buildings_XP2
-SET RequiredPower=2
-WHERE BuildingType='BUILDING_FOOD_MARKET';
+SET RequiredPower = 2
+WHERE BuildingType = 'BUILDING_FOOD_MARKET';
 
 -- make shopping mall require more energy
 UPDATE Buildings_XP2
-SET RequiredPower=2
-WHERE BuildingType='BUILDING_SHOPPING_MALL';
+SET RequiredPower = 2
+WHERE BuildingType = 'BUILDING_SHOPPING_MALL';
 
 -- make research lab require less energy
 UPDATE Buildings_XP2
-SET RequiredPower=2
-WHERE BuildingType='BUILDING_SHOPPING_MALL';
+SET RequiredPower = 2
+WHERE BuildingType = 'BUILDING_SHOPPING_MALL';
 
 -- make coal power plant require energy
 UPDATE Buildings_XP2
-SET RequiredPower=3
-WHERE BuildingType='BUILDING_COAL_POWER_PLANT';
+SET RequiredPower = 3
+WHERE BuildingType = 'BUILDING_COAL_POWER_PLANT';
 
 -- make oil power plant require energy
 UPDATE Buildings_XP2
-SET RequiredPower=3
-WHERE BuildingType='BUILDING_FOSSIL_FUEL_POWER_PLANT';
+SET RequiredPower = 3
+WHERE BuildingType = 'BUILDING_FOSSIL_FUEL_POWER_PLANT';
 
 -- make nuclear power plant require energy
 UPDATE Buildings_XP2
-SET RequiredPower=3
-WHERE BuildingType='BUILDING_POWER_PLANT';
+SET RequiredPower = 3
+WHERE BuildingType = 'BUILDING_POWER_PLANT';

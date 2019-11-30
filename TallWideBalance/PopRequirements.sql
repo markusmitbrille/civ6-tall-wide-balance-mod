@@ -6,7 +6,8 @@
 -- this file adds custom requirements and requirement sets for population sizes
 
 -- temporary table for population sizes
-CREATE TABLE IF NOT EXISTS Mak_PopulationSizes (
+CREATE TABLE IF NOT EXISTS Mak_PopulationSizes
+(
 	Size	INT
 );
 

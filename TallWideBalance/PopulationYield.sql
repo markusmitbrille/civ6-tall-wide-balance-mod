@@ -12,7 +12,8 @@
 -----------
 
 -- temporary table for population sizes
-CREATE TABLE IF NOT EXISTS Mak_PopulationSizes (
+CREATE TABLE IF NOT EXISTS Mak_PopulationSizes
+(
 	Size	INT
 );
 
@@ -21,7 +22,8 @@ WITH RECURSIVE t(val) AS (SELECT 1 UNION ALL SELECT val + 1 FROM t LIMIT 50)
 INSERT INTO Mak_PopulationSizes (Size) SELECT val FROM t;
 
 -- temporary table for buildings
-CREATE TABLE IF NOT EXISTS Mak_Buildings (
+CREATE TABLE IF NOT EXISTS Mak_Buildings
+(
 	Name	TEXT,
 	Yield	TEXT,
 	Lin		REAL,
@@ -66,7 +68,8 @@ VALUES
 	('BUILDING_POWER_PLANT',				'YIELD_PRODUCTION',		0.40,	0.02);
 
 -- temporary table for districts
-CREATE TABLE IF NOT EXISTS Mak_Districts (
+CREATE TABLE IF NOT EXISTS Mak_Districts
+(
 	Name	TEXT,
 	Yield	TEXT,
 	Lin		REAL,
