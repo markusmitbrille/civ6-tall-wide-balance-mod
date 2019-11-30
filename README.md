@@ -8,8 +8,8 @@ To-do:
 - [x] Implement actual pop yields (see Balancing.pdf)
 - [x] Change building yields (see Balancing.pdf)
 - [ ] Change district adjacencies (see Balancing.pdf), though not necessary, maybe?
-- [ ] Change specialist yields (see Balancing.pdf)
-- [ ] Balance food/production yields based on districts, add missing district trade route yields
+- [x] Change specialist yields (see Balancing.pdf)
+- [x] Balance food/production yields based on districts, add missing district trade route yields
 - [ ] Balance government cards for trade route yields
 - [ ] Balance government cards for district adjacency/building yield bonuses (and add cards for specialists)
 - [ ] Balance leader/civ traits that touch on trade route yields
