@@ -29,3 +29,24 @@ VALUES
 	('DISTRICT_BATH',			'YIELD_PRODUCTION',		-1.0,	 1.0,	 1.0),
 	('DISTRICT_DAM',			'YIELD_PRODUCTION',		-2.0,	 2.0,	 2.0),
 	('DISTRICT_NEIGHBORHOOD',	'YIELD_PRODUCTION',		-2.0,	 2.0,	 2.0);
+
+--------------------
+-- CivicModifiers --
+--------------------
+
+-- add trade route capacity increases
+INSERT INTO District_TradeRouteYields (CivicType, ModifierId)
+VALUES
+	('CIVIC_GUILDS',		'CIVIC_GRANT_ONE_TRADE_ROUTE'),
+	('CIVIC_COLONIALISM',	'CIVIC_GRANT_ONE_TRADE_ROUTE');
+
+-------------------------
+-- TechnologyModifiers --
+-------------------------
+
+-- add trade route capacity increases
+INSERT INTO District_TradeRouteYields (TechnologyType, ModifierId)
+VALUES
+	('TECH_CURRENCY',		'CIVIC_GRANT_ONE_TRADE_ROUTE'),
+	('TECH_BANKING',		'CIVIC_GRANT_ONE_TRADE_ROUTE'),
+	('TECH_ECONOMICS',		'CIVIC_GRANT_ONE_TRADE_ROUTE');

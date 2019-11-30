@@ -24,7 +24,7 @@ Ideas:
  - R2R: ~food, ~production,  ~gold
 - [x] International vs. domestic trade: Production and food yields now come from both kinds and mostly depend on urbanization. International trade routes are slightly more gold efficient, domestic trade routes are more food/production efficient (green districts give more gold as international than as domestic destination, city center gives food and production as domestic destination, gold as international destination).
 - [ ] Trade route capacity should come from commercial district only, should give 1 straightaway, then additional ones based on population (maybe at 15/30/40/50)
-- [ ] Some techs/civics should give trade route capacity (maybe 3/3 across both trees, including the one from Foreign Trade)
+- [x] Some techs/civics should give trade route capacity (maybe 3/3 across both trees, including the one from Foreign Trade)
 - [ ] As the player advance through the tech tree, trade routes should become slightly more food/production efficient (mitigating production/food loss for U2R/R2U trade route origins and boosting their benefits)
 - [ ] Rebalance encampment and harbor districts/buildings to be kind of jack-of-all-trades, giving flat bonus food, production and gold, as well as housing (maybe 1/1/1/2)
 - [ ] Move GPP generation from districts/buildings to specialists
