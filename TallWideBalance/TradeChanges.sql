@@ -17,10 +17,10 @@ INSERT INTO District_TradeRouteYields (DistrictType, YieldType, YieldChangeAsOri
 VALUES
 	('DISTRICT_CITY_CENTER',	'YIELD_FOOD',			 1.0,	 2.0,	 0.0),
 	('DISTRICT_CITY_CENTER',	'YIELD_GOLD',			 0.0,	 0.0,	 3.0),
-	('DISTRICT_AQUEDUCT',		'YIELD_GOLD',			 1.0,	 1.0,	 3.0),
-	('DISTRICT_BATH',			'YIELD_GOLD',			 1.0,	 1.0,	 3.0),
+	('DISTRICT_AQUEDUCT',		'YIELD_GOLD',			 1.0,	 1.0,	 2.0),
+	('DISTRICT_BATH',			'YIELD_GOLD',			 1.0,	 1.0,	 2.0),
 	('DISTRICT_DAM',			'YIELD_GOLD',			 2.0,	 2.0,	 5.0),
-	('DISTRICT_NEIGHBORHOOD',	'YIELD_GOLD',			 1.0,	 1.0,	 3.0),
+	('DISTRICT_NEIGHBORHOOD',	'YIELD_GOLD',			 1.0,	 1.0,	 2.0),
 	('DISTRICT_AQUEDUCT',		'YIELD_FOOD',			 1.0,	-1.0,	-1.0),
 	('DISTRICT_BATH',			'YIELD_FOOD',			 1.0,	-1.0,	-1.0),
 	('DISTRICT_DAM',			'YIELD_FOOD',			 2.0,	-2.0,	-2.0),

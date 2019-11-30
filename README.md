@@ -5,9 +5,9 @@ Haphazardly balance, as most things should be.
 A Civilization VI mod that aims to make both tall and wide play-style viable and generally make the game more entertaining.
 
 To-do:
-- [ ] Implement actual pop yields (see Balancing.pdf)
-- [ ] Change building yields (see Balancing.pdf)
-- [ ] Change district adjacencies (see Balancing.pdf)
+- [x] Implement actual pop yields (see Balancing.pdf)
+- [x] Change building yields (see Balancing.pdf)
+- [ ] Change district adjacencies (see Balancing.pdf), though not necessary, maybe?
 - [ ] Change specialist yields (see Balancing.pdf)
 - [ ] Balance food/production yields based on districts, add missing district trade route yields
 - [ ] Balance government cards for trade route yields
@@ -17,7 +17,7 @@ To-do:
 - [ ] Look into whether any world congress stuff needs to be changed
 
 Ideas:
-- [ ] Trade routes yields should balance food/production: Urban cities get food but lose production from trade routes. Green districts (aquaeduct, bath, neighbourhood, mbanza, dam) make a city more urban. Urbanization of trade route destination also affects yields: Urban destinations reduce food gain for origin, but increase production gain. Green districts also increase gold, both as origin and destination. This means there are roughly four trade scenarious (U = "urban", R = "rural", only origin receives yields):
+- [x] Trade routes yields should balance food/production: Urban cities get food but lose production from trade routes. Green districts (aquaeduct, bath, neighbourhood, mbanza, dam) make a city more urban. Urbanization of trade route destination also affects yields: Urban destinations reduce food gain for origin, but increase production gain. Green districts also increase gold, both as origin and destination. This means there are roughly four trade scenarious (U = "urban", R = "rural", only origin receives yields):
  - U2R: +food, -production,  +gold
  - R2U: -food, +production,  +gold
  - U2U: ~food, ~production, ++gold
