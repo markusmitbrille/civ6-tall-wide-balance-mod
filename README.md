@@ -14,6 +14,7 @@ To-do:
 - [ ] Balance government cards for district adjacency/building yield bonuses (and add cards for specialists)
 - [ ] Balance leader/civ traits that touch on trade route yields
 - [ ] Balance leader/civ traits that touch on district/building yields
+- [ ] Balance growth (housing, amenities, food)
 - [ ] Look into whether any world congress stuff needs to be changed
 
 Ideas:
@@ -26,7 +27,8 @@ Ideas:
 - [x] Trade route capacity should come from commercial district only, should give 1 straightaway, then additional ones based on population (maybe at 15/30/40/50)
 - [x] Some techs/civics should give trade route capacity (maybe 3/3 across both trees, including the one from Foreign Trade)
 - [ ] As the player advance through the tech tree, trade routes should become slightly more food/production efficient (mitigating production/food loss for U2R/R2U trade route origins and boosting their benefits)
-- [ ] Rebalance encampment and harbor districts/buildings to be kind of jack-of-all-trades, giving flat bonus food, production and gold, as well as housing (maybe 1/1/1/2)
+- [x] Rebalance encampment and harbor districts/buildings to be kind of jack-of-all-trades, giving flat bonus food, production and gold
+- [ ] Make encampment and harbor district and buildings give some housing as well (maybe 1/1/1/2)
 - [ ] Move GPP generation from districts/buildings to specialists
 - [ ] GPs should always have a universally good benefit
  - Look into giving them a second activated ability, as a kind of alternative, would be especially cool for great writers/artists/musicians, when you don't want the great work
