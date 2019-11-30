@@ -21,7 +21,7 @@
 </Associations>]]></AssociationData>
     <AssemblyName>TallWideBalance</AssemblyName>
     <RootNamespace>TallWideBalance</RootNamespace>
-    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File priority="9">PopRequirements.sql</File></UpdateDatabase><UpdateDatabase id="Gameplay"><File>GlobalParameterChanges.sql</File><File>YieldChanges.sql</File><File>TradeChanges.sql</File><File>CivilizationChanges.sql</File></UpdateDatabase><UpdateDatabase id="Gameplay"><File>PopulationYield.sql</File></UpdateDatabase></InGameActions>]]></InGameActionData>
+    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File priority="9">PopRequirements.sql</File></UpdateDatabase><UpdateDatabase id="Gameplay"><File>GlobalParameterChanges.sql</File><File>YieldChanges.sql</File><File>TradeChanges.sql</File><File>CivilizationChanges.sql</File><File>SpecialistChanges.sql</File></UpdateDatabase><UpdateDatabase id="Gameplay"><File>PopulationYield.sql</File></UpdateDatabase></InGameActions>]]></InGameActionData>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
@@ -37,6 +37,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="PopulationYield.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SpecialistChanges.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="TradeChanges.sql">
