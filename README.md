@@ -14,7 +14,8 @@ To-do:
 - [ ] Balance government cards for district adjacency/building yield bonuses (and add cards for specialists)
 - [ ] Balance leader/civ traits that touch on trade route yields
 - [ ] Balance leader/civ traits that touch on district/building yields
-- [ ] Balance growth (housing, amenities, food)
+- [x] Balance growth (housing, amenities, food)
+- [ ] Balance amenities from buildings/wonders and districts
 - [ ] Look into whether any world congress stuff needs to be changed
 
 Ideas:
