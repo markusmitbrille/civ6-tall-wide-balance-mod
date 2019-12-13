@@ -84,8 +84,7 @@ VALUES
 	('BUILDING_FILM_STUDIO',				'YIELD_CULTURE',		6),
 	('BUILDING_STOCK_EXCHANGE',				'YIELD_GOLD',			6),
 	('BUILDING_FACTORY',					'YIELD_PRODUCTION',		3),
-	('BUILDING_ELECTRONICS_FACTORY',		'YIELD_CULTURE',		6),
-	('BUILDING_ELECTRONICS_FACTORY',		'YIELD_PRODUCTION',		6),
+	('BUILDING_ELECTRONICS_FACTORY',		'YIELD_PRODUCTION',		3),
 	('BUILDING_COAL_POWER_PLANT',			'YIELD_PRODUCTION',		9),
 	('BUILDING_FOSSIL_FUEL_POWER_PLANT',	'YIELD_PRODUCTION',		9),
 	('BUILDING_POWER_PLANT',				'YIELD_PRODUCTION',		9),
@@ -125,6 +124,7 @@ VALUES
 	('BUILDING_SYNAGOGUE',					'YIELD_FAITH',			'YIELD_GOLD'),
 	('BUILDING_MEETING_HOUSE',				'YIELD_FAITH',			'YIELD_PRODUCTION'),
 	('BUILDING_GURDWARA',					'YIELD_FAITH',			'YIELD_FOOD'),
+	('BUILDING_ELECTRONICS_FACTORY',		'YIELD_PRODUCTION',		'YIELD_CULTURE'),
 	('BUILDING_FOSSIL_FUEL_POWER_PLANT',	'YIELD_PRODUCTION',		'YIELD_PRODUCTION'),
 	('BUILDING_POWER_PLANT',				'YIELD_PRODUCTION',		'YIELD_PRODUCTION'),
 	('BUILDING_POWER_PLANT',				'YIELD_PRODUCTION',		'YIELD_SCIENCE'),
@@ -212,6 +212,31 @@ UPDATE Buildings
 SET PrereqDistrict = 'DISTRICT_CITY_CENTER'
 WHERE BuildingType = 'BUILDING_SHOPPING_MALL';
 
+-- make tier 3 buildings of non religion primary districts regional
+UPDATE Buildings
+SET RegionRange = 6
+WHERE BuildingType IN
+(
+	'BUILDING_RESEARCH_LAB',
+	'BUILDING_BROADCAST_CENTER',
+	'BUILDING_FILM_STUDIO',
+	'BUILDING_STOCK_EXCHANGE',
+	'BUILDING_FACTORY',
+	'BUILDING_ELECTRONICS_FACTORY',
+	'BUILDING_COAL_POWER_PLANT',
+	'BUILDING_FOSSIL_FUEL_POWER_PLANT',
+	'BUILDING_POWER_PLANT'
+);
+
+-- make tier 3 buildings of entertainment districts regional
+UPDATE Buildings
+SET RegionRange = 9
+WHERE BuildingType IN
+(
+	'BUILDING_STADIUM',
+	'BUILDING_AQUATICS_CENTER'
+);
+
 --------------------------------
 -- MutuallyExclusiveBuildings --
 --------------------------------
@@ -230,67 +255,43 @@ WHERE Building = 'BUILDING_SHOPPING_MALL';
 -- Buildings_XP2 --
 -------------------
 
--- make factory require less energy
+-- change energy cost
+
 UPDATE Buildings_XP2
 SET RequiredPower = 1
-WHERE BuildingType = 'BUILDING_FACTORY';
+WHERE BuildingType IN
+(
+	'BUILDING_SHOPPING_MALL',
+	'BUILDING_FOOD_MARKET',
+	'BUILDING_HANGAR',
+	'BUILDING_FACTORY',
+	'BUILDING_ELECTRONICS_FACTORY'
+);
 
--- make electronics factory require less energy
-UPDATE Buildings_XP2
-SET RequiredPower = 1
-WHERE BuildingType = 'BUILDING_ELECTRONICS_FACTORY';
-
--- make research lab require less energy
-UPDATE Buildings_XP2
-SET RequiredPower = 2
-WHERE BuildingType = 'BUILDING_RESEARCH_LAB';
-
--- make broadcast center require less energy
 UPDATE Buildings_XP2
 SET RequiredPower = 2
-WHERE BuildingType = 'BUILDING_BROADCAST_CENTER';
+WHERE BuildingType IN
+(
+	'BUILDING_AIRPORT',
+	'BUILDING_STADIUM',
+	'BUILDING_AQUATICS_CENTER'
+);
 
--- make film studio require less energy
-UPDATE Buildings_XP2
-SET RequiredPower = 2
-WHERE BuildingType = 'BUILDING_FILM_STUDIO';
-
--- make stock exchange require less energy
-UPDATE Buildings_XP2
-SET RequiredPower = 2
-WHERE BuildingType = 'BUILDING_STOCK_EXCHANGE';
-
--- make airport require more energy
-UPDATE Buildings_XP2
-SET RequiredPower = 2
-WHERE BuildingType = 'BUILDING_AIRPORT';
-
--- make food market require more energy
-UPDATE Buildings_XP2
-SET RequiredPower = 2
-WHERE BuildingType = 'BUILDING_FOOD_MARKET';
-
--- make shopping mall require more energy
-UPDATE Buildings_XP2
-SET RequiredPower = 2
-WHERE BuildingType = 'BUILDING_SHOPPING_MALL';
-
--- make research lab require less energy
-UPDATE Buildings_XP2
-SET RequiredPower = 2
-WHERE BuildingType = 'BUILDING_SHOPPING_MALL';
-
--- make coal power plant require energy
 UPDATE Buildings_XP2
 SET RequiredPower = 3
-WHERE BuildingType = 'BUILDING_COAL_POWER_PLANT';
+WHERE BuildingType IN
+(
+	'BUILDING_RESEARCH_LAB',
+	'BUILDING_BROADCAST_CENTER',
+	'BUILDING_FILM_STUDIO',
+	'BUILDING_STOCK_EXCHANGE'
+);
 
--- make oil power plant require energy
 UPDATE Buildings_XP2
-SET RequiredPower = 3
-WHERE BuildingType = 'BUILDING_FOSSIL_FUEL_POWER_PLANT';
-
--- make nuclear power plant require energy
-UPDATE Buildings_XP2
-SET RequiredPower = 3
-WHERE BuildingType = 'BUILDING_POWER_PLANT';
+SET RequiredPower = 4
+WHERE BuildingType IN
+(
+	'BUILDING_COAL_POWER_PLANT',
+	'BUILDING_FOSSIL_FUEL_POWER_PLANT',
+	'BUILDING_POWER_PLANT'
+);
