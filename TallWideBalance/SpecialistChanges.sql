@@ -23,8 +23,19 @@ VALUES
 	('DISTRICT_LAVRA',					'YIELD_FAITH',			3),
 	('DISTRICT_COMMERCIAL_HUB',			'YIELD_GOLD',			3),
 	('DISTRICT_SUGUBA',					'YIELD_GOLD',			3),
-	('DISTRICT_INDUSTRIAL_ZONE',		'YIELD_FOOD',			3),
-	('DISTRICT_HANSA',					'YIELD_FOOD',			3);
+	('DISTRICT_INDUSTRIAL_ZONE',		'YIELD_PRODUCTION',		3),
+	('DISTRICT_HANSA',					'YIELD_PRODUCTION',		3),
+	('DISTRICT_ENCAMPMENT',				'YIELD_PRODUCTION',		3),
+	('DISTRICT_IKANDA',					'YIELD_PRODUCTION',		3),
+	('DISTRICT_HARBOR',					'YIELD_FOOD',			1),
+	('DISTRICT_HARBOR',					'YIELD_PRODUCTION',		1),
+	('DISTRICT_HARBOR',					'YIELD_GOLD',			1),
+	('DISTRICT_ROYAL_NAVY_DOCKYARD',	'YIELD_FOOD',			1),
+	('DISTRICT_ROYAL_NAVY_DOCKYARD',	'YIELD_PRODUCTION',		1),
+	('DISTRICT_ROYAL_NAVY_DOCKYARD',	'YIELD_GOLD',			1),
+	('DISTRICT_COTHON',					'YIELD_FOOD',			1),
+	('DISTRICT_COTHON',					'YIELD_PRODUCTION',		1),
+	('DISTRICT_COTHON',					'YIELD_GOLD',			1);
 
 -- temporary table for building citizen yields
 CREATE TABLE IF NOT EXISTS Mak_BuildingCitizenYields
@@ -36,25 +47,24 @@ CREATE TABLE IF NOT EXISTS Mak_BuildingCitizenYields
 
 INSERT INTO Mak_BuildingCitizenYields (Name, Yield, Value)
 VALUES
-	('BUILDING_BARRACKS',				'YIELD_PRODUCTION',		2),
-	('BUILDING_STABLE',					'YIELD_PRODUCTION',		2),
-	('BUILDING_BASILIKOI_PAIDES',		'YIELD_PRODUCTION',		2),
-	('BUILDING_ORDU',					'YIELD_PRODUCTION',		2),
+	('BUILDING_BARRACKS',				'YIELD_PRODUCTION',		1),
+	('BUILDING_STABLE',					'YIELD_PRODUCTION',		1),
+	('BUILDING_BASILIKOI_PAIDES',		'YIELD_PRODUCTION',		1),
+	('BUILDING_ORDU',					'YIELD_PRODUCTION',		1),
 	('BUILDING_ARMORY',					'YIELD_PRODUCTION',		1),
 	('BUILDING_MILITARY_ACADEMY',		'YIELD_PRODUCTION',		1),
-	('BUILDING_HANGAR',					'YIELD_GOLD',			3),
-	('BUILDING_AIRPORT',				'YIELD_GOLD',			1),
-	('BUILDING_LIGHTHOUSE',				'YIELD_FOOD',			3),
-	('BUILDING_SHIPYARD',				'YIELD_PRODUCTION',		2),
-	('BUILDING_SEAPORT',				'YIELD_GOLD',			2);
+	('BUILDING_MILITARY_ACADEMY',		'YIELD_SCIENCE',		3),
+	('BUILDING_LIGHTHOUSE',				'YIELD_FOOD',			1),
+	('BUILDING_SHIPYARD',				'YIELD_PRODUCTION',		1),
+	('BUILDING_SEAPORT',				'YIELD_GOLD',			1),
+	('BUILDING_SEAPORT',				'YIELD_CULTURE',		3);
 
 ----------------------------------
 -- District_CitizenYieldChanges --
 ----------------------------------
 
--- delete affected rows
-DELETE District_CitizenYieldChanges
-FROM District_CitizenYieldChanges JOIN Mak_DistrictCitizenYields ON District_CitizenYieldChanges.BuildingType = Mak_DistrictCitizenYields.Name;
+-- truncate table
+DELETE FROM District_CitizenYieldChanges;
 
 -- insert new values
 INSERT INTO District_CitizenYieldChanges (DistrictType, YieldType, YieldChange)
@@ -64,17 +74,30 @@ SELECT Name, Yield, Value FROM Mak_DistrictCitizenYields;
 -- Building_CitizenYieldChanges --
 ----------------------------------
 
--- delete affected rows
-DELETE Building_CitizenYieldChanges
-FROM Building_CitizenYieldChanges JOIN Mak_BuildingCitizenYields ON Building_CitizenYieldChanges.BuildingType = Mak_BuildingCitizenYields.Name;
+-- truncate table
+DELETE FROM Building_CitizenYieldChanges;
 
 -- insert new values
 INSERT INTO Building_CitizenYieldChanges (BuildingType, YieldType, YieldChange)
 SELECT Name, Yield, Value FROM Mak_BuildingCitizenYields;
 
 ---------------
+-- Districts --
+---------------
+
+-- districts give no specialist slots as per default
+UPDATE Districts
+SET CitizenSlots = 0;
+
+---------------
 -- Buildings --
 ---------------
+
+-- buildings give no specialist slots as per default
+UPDATE Buildings
+SET CitizenSlots = 0;
+
+-- add specialist slots to buildings for primary districts (1/2/3) and bonus districts (1/1/1)
 
 UPDATE Buildings
 SET CitizenSlots = 1
@@ -92,8 +115,10 @@ WHERE BuildingType IN
 	'BUILDING_BASILIKOI_PAIDES',
 	'BUILDING_ORDU',
 	'BUILDING_ARMORY',
+	'BUILDING_MILITARY_ACADEMY',
 	'BUILDING_LIGHTHOUSE',
-	'BUILDING_SHIPYARD'
+	'BUILDING_SHIPYARD',
+	'BUILDING_SEAPORT'
 );
 
 UPDATE Buildings
@@ -110,8 +135,7 @@ WHERE BuildingType IN
 	'BUILDING_BANK',
 	'BUILDING_GRAND_BAZAAR',
 	'BUILDING_FACTORY',
-	'BUILDING_ELECTRONICS_FACTORY',
-	'BUILDING_HANGAR'
+	'BUILDING_ELECTRONICS_FACTORY'
 );
 
 UPDATE Buildings
@@ -130,8 +154,5 @@ WHERE BuildingType IN
 	'BUILDING_WAT',
 	'BUILDING_STUPA',
 	'BUILDING_DAR_E_MEHR',
-	'BUILDING_STOCK_EXCHANGE',
-	'BUILDING_MILITARY_ACADEMY',
-	'BUILDING_AIRPORT',
-	'BUILDING_SEAPORT'
+	'BUILDING_STOCK_EXCHANGE'
 );
