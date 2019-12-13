@@ -2,7 +2,7 @@
 <Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
-    <Name>Tall-Wide Balance</Name>
+    <Name>Haphazardly Balanced Mod</Name>
     <Guid>6b1997cc-5ad0-4ed4-8ace-8a5d102d672e</Guid>
     <ProjectGuid>1d68cf9f-cf5d-4609-a022-265a0e9d8dd4</ProjectGuid>
     <ModVersion>1</ModVersion>

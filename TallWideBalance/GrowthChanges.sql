@@ -108,48 +108,14 @@ WHERE BuildingType IN
 	'BUILDING_SEAPORT'
 );
 
--- entertainment changes
-
-UPDATE Buildings
-SET Entertainment = 0;
-
-UPDATE Buildings
-SET Entertainment = 1
-WHERE BuildingType IN
-(
-	'BUILDING_PALACE',
-	'BUILDING_ARENA',
-	'BUILDING_TLACHTLI',
-	'BUILDING_ZOO',
-	'BUILDING_STADIUM',
-	'BUILDING_FERRIS_WHEEL',
-	'BUILDING_AQUARIUM',
-	'BUILDING_AQUATICS_CENTER',
-	'BUILDING_STUPA',
-	'BUILDING_SHOPPING_MALL'
-	'BUILDING_GREAT_BATH',
-);
-
-UPDATE Buildings
-SET Entertainment = 2
-WHERE BuildingType IN
-(
-	'BUILDING_COLOSSEUM',
-	'BUILDING_ALHAMBRA',
-	'BUILDING_ESTADIO_DO_MARACANA',
-	'BUILDING_THERMAL_BATH'
-);
-
-UPDATE Buildings
-SET Entertainment = 3
-WHERE BuildingType IN
-(
-	'BUILDING_GOLDEN_GATE_BRIDGE'
-);
-
 ---------------
 -- Districts --
 ---------------
+
+-- make neighborhoods available earlier
+UPDATE Districts
+SET PrereqCivic = 'CIVIC_FEUDALISM'
+WHERE DistrictType = 'DISTRICT_NEIGHBORHOOD';
 
 -- housing changes
 
@@ -168,16 +134,10 @@ WHERE DistrictType IN
 );
 
 UPDATE Districts
-SET Housing = 2
-WHERE DistrictType IN
-(
-	'DISTRICT_BATH'
-);
-
-UPDATE Districts
 SET Housing = 3
 WHERE DistrictType IN
 (
+	'DISTRICT_BATH',
 	'DISTRICT_DAM'
 );
 
@@ -187,25 +147,4 @@ WHERE DistrictType IN
 (
 	'DISTRICT_NEIGHBORHOOD',
 	'DISTRICT_MBANZA'
-);
-
--- make neighborhoods available earlier
-UPDATE Districts
-SET PrereqCivic = 'CIVIC_FEUDALISM'
-WHERE DistrictType = 'DISTRICT_NEIGHBORHOOD';
-
--- entertainment changes
-
-UPDATE Districts
-SET Entertainment = 0;
-
-UPDATE Districts
-SET Entertainment = 1
-WHERE DistrictType IN
-(
-	'DISTRICT_BATH',
-	'DISTRICT_ENTERTAINMENT_COMPLEX',
-	'DISTRICT_STREET_CARNIVAL',
-	'DISTRICT_WATER_ENTERTAINMENT_COMPLEX',
-	'DISTRICT_WATER_STREET_CARNIVAL'
 );
