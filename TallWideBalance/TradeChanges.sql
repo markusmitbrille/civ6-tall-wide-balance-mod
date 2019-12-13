@@ -109,3 +109,25 @@ WHERE ModifierId = 'MARKET_TRADE_ROUTE_CAPACITY';
 -- remove trade route capacity from lighthouse
 DELETE FROM BuildingModifiers
 WHERE ModifierId = 'LIGHTHOUSE_TRADE_ROUTE_CAPACITY';
+
+----------------------------------------
+-- Remove Market/Lighthouse Modifiers --
+----------------------------------------
+
+DELETE FROM BuildingModifiers
+WHERE ModifierId = 'MARKET_TRADE_ROUTE_CAPACITY';
+
+DELETE FROM BuildingModifiers
+WHERE ModifierId = 'LIGHTHOUSE_TRADE_ROUTE_CAPACITY';
+
+DELETE FROM ModifierArguments
+WHERE ModifierId = 'MARKET_TRADE_ROUTE_CAPACITY';
+
+DELETE FROM ModifierArguments
+WHERE ModifierId = 'LIGHTHOUSE_TRADE_ROUTE_CAPACITY';
+
+DELETE FROM Modifiers
+WHERE ModifierId = 'MARKET_TRADE_ROUTE_CAPACITY';
+
+DELETE FROM Modifiers
+WHERE ModifierId = 'LIGHTHOUSE_TRADE_ROUTE_CAPACITY';
