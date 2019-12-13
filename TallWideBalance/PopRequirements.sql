@@ -39,6 +39,10 @@ SELECT 'MAK_REQUIRES_POPULATION_'||Size, 'Amount', Size FROM Mak_PopulationSizes
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)
 SELECT 'MAK_REQUIRES_POPULATION_'||Size, 'REQUIREMENTSET_TEST_ALL' FROM Mak_PopulationSizes;
 
+-- requirement sets for pop sizes and city power (for tier 3 buildings)
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)
+SELECT 'MAK_REQUIRES_POWER_AND_POPULATION_'||Size, 'REQUIREMENTSET_TEST_ALL' FROM Mak_PopulationSizes;
+
 --------------------------------
 -- RequirementSetRequirements --
 --------------------------------
@@ -46,6 +50,14 @@ SELECT 'MAK_REQUIRES_POPULATION_'||Size, 'REQUIREMENTSET_TEST_ALL' FROM Mak_Popu
 -- add pop size requirements to pop size requirement sets
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
 SELECT 'MAK_REQUIRES_POPULATION_'||Size, 'MAK_REQUIRES_POPULATION_'||Size FROM Mak_PopulationSizes;
+
+-- add pop size requirements to power and pop size requirement sets
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+SELECT 'MAK_REQUIRES_POWER_AND_POPULATION_'||Size, 'MAK_REQUIRES_POPULATION_'||Size FROM Mak_PopulationSizes;
+
+-- add power requirement to power and pop size requirement sets
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+SELECT 'MAK_REQUIRES_POWER_AND_POPULATION_'||Size, 'REQUIRES_CITY_IS_POWERED' FROM Mak_PopulationSizes;
 
 -------------
 -- Cleanup --

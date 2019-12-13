@@ -35,13 +35,10 @@ VALUES
 	('BUILDING_LIBRARY',					'YIELD_SCIENCE',		0.00,	0.05),
 	('BUILDING_UNIVERSITY',					'YIELD_SCIENCE',		0.20,	0.12),
 	('BUILDING_MADRASA',					'YIELD_SCIENCE',		0.20,	0.12),
-	('BUILDING_RESEARCH_LAB',				'YIELD_SCIENCE',		0.20,	0.19),
 	('BUILDING_AMPHITHEATER',				'YIELD_CULTURE',		0.00,	0.05),
 	('BUILDING_MARAE',						'YIELD_CULTURE',		0.00,	0.05),
 	('BUILDING_MUSEUM_ART',					'YIELD_CULTURE',		0.40,	0.13),
 	('BUILDING_MUSEUM_ARTIFACT',			'YIELD_CULTURE',		0.40,	0.13),
-	('BUILDING_BROADCAST_CENTER',			'YIELD_CULTURE',		0.80,	0.22),
-	('BUILDING_FILM_STUDIO',				'YIELD_CULTURE',		0.80,	0.22),
 	('BUILDING_SHRINE',						'YIELD_FAITH',			0.00,	0.05),
 	('BUILDING_TEMPLE',						'YIELD_FAITH',			0.00,	0.11),
 	('BUILDING_STAVE_CHURCH',				'YIELD_FAITH',			0.00,	0.11),
@@ -59,8 +56,23 @@ VALUES
 	('BUILDING_SUKIENNICE',					'YIELD_GOLD',			0.25,	0.04),
 	('BUILDING_BANK',						'YIELD_GOLD',			0.95,	0.08),
 	('BUILDING_GRAND_BAZAAR',				'YIELD_GOLD',			0.95,	0.08),
+	('BUILDING_WORKSHOP',					'YIELD_PRODUCTION',		0.15,	0.01);
+
+-- temporary table for powered buildings
+CREATE TABLE IF NOT EXISTS Mak_BuildingsPower
+(
+	Name	TEXT,
+	Yield	TEXT,
+	Lin		REAL,
+	Exp		REAL
+);
+
+INSERT INTO Mak_BuildingsPower (Name, Yield, Lin, Exp)
+VALUES
+	('BUILDING_RESEARCH_LAB',				'YIELD_SCIENCE',		0.20,	0.19),
+	('BUILDING_BROADCAST_CENTER',			'YIELD_CULTURE',		0.80,	0.22),
+	('BUILDING_FILM_STUDIO',				'YIELD_CULTURE',		0.80,	0.22),
 	('BUILDING_STOCK_EXCHANGE',				'YIELD_GOLD',			1.60,	0.20),
-	('BUILDING_WORKSHOP',					'YIELD_PRODUCTION',		0.15,	0.01),
 	('BUILDING_FACTORY',					'YIELD_PRODUCTION',		0.05,	0.01),
 	('BUILDING_ELECTRONICS_FACTORY',		'YIELD_PRODUCTION',		0.05,	0.01),
 	('BUILDING_COAL_POWER_PLANT',			'YIELD_PRODUCTION',		0.40,	0.02),
@@ -127,6 +139,14 @@ SELECT 'MAK_'||Name||'_LINEAR_YIELD', 'MAK_MODIFIER_LINEAR_YIELD_FROM_POPULATION
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
 SELECT 'MAK_'||Name||'_POPULATION_'||Size||'_YIELD', 'MAK_MODIFIER_EXPONENTIAL_YIELD_FROM_POPULATION', 'MAK_REQUIRES_POPULATION_'||Size FROM Mak_Buildings, Mak_PopulationSizes;
 
+-- linear power building modifiers
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
+SELECT 'MAK_'||Name||'_LINEAR_YIELD', 'MAK_MODIFIER_LINEAR_YIELD_FROM_POPULATION', 'CITY_IS_POWERED' FROM Mak_BuildingsPower;
+
+-- exponential power building modifiers
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
+SELECT 'MAK_'||Name||'_POPULATION_'||Size||'_YIELD', 'MAK_MODIFIER_EXPONENTIAL_YIELD_FROM_POPULATION', 'MAK_REQUIRES_POWER_AND_POPULATION_'||Size FROM Mak_BuildingsPower, Mak_PopulationSizes;
+
 -----------------------
 -- ModifierArguments --
 -----------------------
@@ -163,6 +183,22 @@ SELECT 'MAK_'||Name||'_POPULATION_'||Size||'_YIELD', 'YieldType', Yield FROM Mak
 INSERT INTO ModifierArguments (ModifierId, Name, Value)
 SELECT 'MAK_'||Name||'_POPULATION_'||Size||'_YIELD', 'Amount', Exp FROM Mak_Buildings, Mak_PopulationSizes;
 
+-- linear power building modifiers yield type arguments
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+SELECT 'MAK_'||Name||'_LINEAR_YIELD', 'YieldType', Yield FROM Mak_BuildingsPower;
+
+-- linear power building modifiers yield amount arguments
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+SELECT 'MAK_'||Name||'_LINEAR_YIELD', 'Amount', Lin FROM Mak_BuildingsPower;
+
+-- exponential power building modifiers yield type arguments
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+SELECT 'MAK_'||Name||'_POPULATION_'||Size||'_YIELD', 'YieldType', Yield FROM Mak_BuildingsPower, Mak_PopulationSizes;
+
+-- exponential power building modifiers yield amount arguments
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+SELECT 'MAK_'||Name||'_POPULATION_'||Size||'_YIELD', 'Amount', Exp FROM Mak_BuildingsPower, Mak_PopulationSizes;
+
 -----------------------
 -- DistrictModifiers --
 -----------------------
@@ -179,13 +215,21 @@ SELECT Name,  'MAK_'||Name||'_POPULATION_'||Size||'_YIELD' FROM Mak_Districts, M
 -- BuildingModifiers --
 -----------------------
 
--- linear district modifiers
+-- linear building modifiers
 INSERT INTO BuildingModifiers (DistrictType, ModifierId)
 SELECT Name,  'MAK_'||Name||'_LINEAR_YIELD' FROM Mak_Buildings;
 
--- exponential district modifiers
+-- exponential building modifiers
 INSERT INTO BuildingModifiers (BuildingType, ModifierId)
 SELECT Name,  'MAK_'||Name||'_POPULATION_'||Size||'_YIELD' FROM Mak_Buildings, Mak_PopulationSizes;
+
+-- linear power building modifiers
+INSERT INTO BuildingModifiers (DistrictType, ModifierId)
+SELECT Name,  'MAK_'||Name||'_LINEAR_YIELD' FROM Mak_BuildingsPower;
+
+-- exponential power building modifiers
+INSERT INTO BuildingModifiers (BuildingType, ModifierId)
+SELECT Name,  'MAK_'||Name||'_POPULATION_'||Size||'_YIELD' FROM Mak_BuildingsPower, Mak_PopulationSizes;
 
 -------------
 -- Cleanup --
@@ -195,3 +239,4 @@ SELECT Name,  'MAK_'||Name||'_POPULATION_'||Size||'_YIELD' FROM Mak_Buildings, M
 DROP TABLE Mak_PopulationSizes;
 DROP TABLE Mak_Districts;
 DROP TABLE Mak_Buildings;
+DROP TABLE Mak_BuildingsPower;

@@ -29,7 +29,7 @@ Ideas:
 - [x] Some techs/civics should give trade route capacity (maybe 3/3 across both trees, including the one from Foreign Trade)
 - [ ] As the player advance through the tech tree, trade routes should become slightly more food/production efficient (mitigating production/food loss for U2R/R2U trade route origins and boosting their benefits)
 - [x] Rebalance encampment and harbor districts/buildings to be kind of jack-of-all-trades, giving flat bonus food, production and gold
-- [ ] Make encampment and harbor district and buildings give some housing as well (maybe 1/1/1/2)
+- [x] Make encampment and harbor district and buildings give some housing as well (maybe 1/1/1/2)
 - [ ] Move GPP generation from districts/buildings to specialists
 - [ ] GPs should always have a universally good benefit
  - Look into giving them a second activated ability, as a kind of alternative, would be especially cool for great writers/artists/musicians, when you don't want the great work
