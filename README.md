@@ -9,8 +9,8 @@ To-do:
 - [x] Change building yields (see Balancing.pdf)
 - [x] Change specialist yields (see Balancing.pdf)
 - [x] Balance food/production yields based on districts, add missing district trade route yields
-- [ ] Balance policies for trade route yields
-- [ ] Balance policies for district adjacency/building yield bonuses (and add cards for specialists)
+- [x] Balance policies for trade route yields
+- [x] Balance policies for district adjacency/building yield bonuses (and add cards for specialists)
 - [ ] Balance leader/civ traits that touch on trade route yields
 - [ ] Balance leader/civ traits that touch on district/building yields
 - [x] Balance growth (housing, amenities, food)
