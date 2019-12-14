@@ -41,22 +41,6 @@ VALUES
 	('MAK_POLICY_URBAN_SPRAWL',		'MAK_BOOST_NEIGHBORHOOD_PRODUCTION'),
 	('MAK_POLICY_URBAN_SPRAWL',		'MAK_BOOST_MBANZA_PRODUCTION');
 
--------------
--- Insulae --
--------------
-
---------------------
--- Medina Quarter --
---------------------
-
-----------------
--- Liberalism --
-----------------
-
---------------
--- New Deal --
---------------
-
 ----------------------
 -- Public Transport --
 ----------------------

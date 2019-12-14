@@ -23,10 +23,6 @@ To-do:
 To-test:
 - Changes to policies
   - [ ] Urban Sprawl
-  - [ ] Isulae
-  - [ ] Medina Quarter
-  - [ ] Liberalism
-  - [ ] New Deal
   - [ ] Public Transportation
   - [ ] Triangular Trade
   - [ ] Collectivization
