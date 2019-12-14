@@ -242,13 +242,11 @@ WHERE BuildingType IN
 --------------------------------
 
 -- make food market non exclusive with shopping mall
-DELETE MutuallyExclusiveBuildings
-FROM MutuallyExclusiveBuildings
+DELETE FROM MutuallyExclusiveBuildings
 WHERE Building = 'BUILDING_FOOD_MARKET';
 
 -- make shopping mall non exclusive with food market
-DELETE MutuallyExclusiveBuildings
-FROM MutuallyExclusiveBuildings
+DELETE FROM MutuallyExclusiveBuildings
 WHERE Building = 'BUILDING_SHOPPING_MALL';
 
 -------------------

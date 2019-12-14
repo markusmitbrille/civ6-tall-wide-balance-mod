@@ -112,9 +112,19 @@ WHERE BuildingType IN
 -- Districts --
 ---------------
 
+-- make neighborhoods more expansive
+UPDATE Districts
+SET Cost = 81
+WHERE DistrictType = 'DISTRICT_NEIGHBORHOOD';
+
+-- make mbanza more expansive
+UPDATE Districts
+SET Cost = 41
+WHERE DistrictType = 'DISTRICT_MBANZA';
+
 -- make neighborhoods available earlier
 UPDATE Districts
-SET PrereqCivic = 'CIVIC_FEUDALISM'
+SET PrereqCivic = 'CIVIC_CIVIL_SERVICE'
 WHERE DistrictType = 'DISTRICT_NEIGHBORHOOD';
 
 -- housing changes

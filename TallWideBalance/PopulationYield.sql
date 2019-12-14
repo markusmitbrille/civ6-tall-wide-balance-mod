@@ -125,7 +125,7 @@ VALUES
 
 -- linear district modifiers
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
-SELECT 'MAK_'||Name||'_LINEAR_YIELD', 'MAK_MODIFIER_LINEAR_YIELD_FROM_POPULATION', NULL FROM Mak_Districts;
+SELECT 'MAK_'||Name||'_LINEAR_YIELD', 'MAK_MODIFIER_LINEAR_YIELD_FROM_POPULATION' FROM Mak_Districts;
 
 -- exponential district modifiers
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)

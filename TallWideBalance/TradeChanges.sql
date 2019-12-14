@@ -15,13 +15,13 @@ DELETE FROM District_TradeRouteYields;
 -- fill it again
 INSERT INTO District_TradeRouteYields (DistrictType, YieldType, YieldChangeAsOrigin, YieldChangeAsDomesticDestination, YieldChangeAsInternationalDestination)
 VALUES
-	('DISTRICT_CITY_CENTER',	'YIELD_FOOD',			 1.0,	 2.0,	 0.0),
-	('DISTRICT_CITY_CENTER',	'YIELD_GOLD',			 0.0,	 0.0,	 3.0),
-	('DISTRICT_AQUEDUCT',		'YIELD_GOLD',			 1.0,	 1.0,	 2.0),
-	('DISTRICT_BATH',			'YIELD_GOLD',			 1.0,	 1.0,	 2.0),
-	('DISTRICT_DAM',			'YIELD_GOLD',			 2.0,	 2.0,	 5.0),
-	('DISTRICT_NEIGHBORHOOD',	'YIELD_GOLD',			 1.0,	 1.0,	 2.0),
-	('DISTRICT_MBANZA',			'YIELD_GOLD',			 1.0,	 1.0,	 2.0),
+	('DISTRICT_CITY_CENTER',	'YIELD_FOOD',			 0.0,	 2.0,	 0.0),
+	('DISTRICT_CITY_CENTER',	'YIELD_GOLD',			 0.0,	 0.0,	 4.0),
+	('DISTRICT_AQUEDUCT',		'YIELD_GOLD',			 1.0,	 1.0,	 1.0),
+	('DISTRICT_BATH',			'YIELD_GOLD',			 1.0,	 1.0,	 1.0),
+	('DISTRICT_DAM',			'YIELD_GOLD',			 2.0,	 2.0,	 2.0),
+	('DISTRICT_NEIGHBORHOOD',	'YIELD_GOLD',			 1.0,	 1.0,	 1.0),
+	('DISTRICT_MBANZA',			'YIELD_GOLD',			 1.0,	 1.0,	 1.0),
 	('DISTRICT_AQUEDUCT',		'YIELD_FOOD',			 1.0,	-1.0,	-1.0),
 	('DISTRICT_BATH',			'YIELD_FOOD',			 1.0,	-1.0,	-1.0),
 	('DISTRICT_DAM',			'YIELD_FOOD',			 2.0,	-2.0,	-2.0),
@@ -97,18 +97,6 @@ VALUES
 	('DISTRICT_SUGUBA',				'MAK_COMMERCIAL_HUB_POPULATION_30_TRADE_ROUTE_CAPACITY'),
 	('DISTRICT_SUGUBA',				'MAK_COMMERCIAL_HUB_POPULATION_40_TRADE_ROUTE_CAPACITY'),
 	('DISTRICT_SUGUBA',				'MAK_COMMERCIAL_HUB_POPULATION_50_TRADE_ROUTE_CAPACITY');
-
------------------------
--- BuildingModifiers --
------------------------
-
--- remove trade route capacity from market
-DELETE FROM BuildingModifiers
-WHERE ModifierId = 'MARKET_TRADE_ROUTE_CAPACITY';
-
--- remove trade route capacity from lighthouse
-DELETE FROM BuildingModifiers
-WHERE ModifierId = 'LIGHTHOUSE_TRADE_ROUTE_CAPACITY';
 
 ----------------------------------------
 -- Remove Market/Lighthouse Modifiers --

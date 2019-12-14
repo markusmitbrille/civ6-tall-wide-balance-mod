@@ -7,16 +7,36 @@ A Civilization VI mod that aims to make both tall and wide play-style viable and
 To-do:
 - [x] Implement actual pop yields (see Balancing.pdf)
 - [x] Change building yields (see Balancing.pdf)
-- [ ] Change district adjacencies (see Balancing.pdf), though not necessary, maybe?
 - [x] Change specialist yields (see Balancing.pdf)
 - [x] Balance food/production yields based on districts, add missing district trade route yields
-- [ ] Balance government cards for trade route yields
-- [ ] Balance government cards for district adjacency/building yield bonuses (and add cards for specialists)
+- [ ] Balance policies for trade route yields
+- [ ] Balance policies for district adjacency/building yield bonuses (and add cards for specialists)
 - [ ] Balance leader/civ traits that touch on trade route yields
 - [ ] Balance leader/civ traits that touch on district/building yields
 - [x] Balance growth (housing, amenities, food)
 - [ ] Balance amenities from buildings/wonders and districts
 - [ ] Look into whether any world congress stuff needs to be changed
+- [ ] Localization: Rename Neighborhood to Municipality, change Civilopedia entry to reflect new concept
+- [ ] Do localization for Urban Sprawl
+- [ ] Do localization for all changes
+
+To-test:
+- Changes to policies
+  - [ ] Urban Sprawl
+  - [ ] Isulae
+  - [ ] Medina Quarter
+  - [ ] Liberalism
+  - [ ] New Deal
+  - [ ] Public Transportation
+  - [ ] Triangular Trade
+  - [ ] Collectivization
+  - [ ] Ecommerce
+- [ ] GPP from citizens
+- [ ] Population Yields
+- [ ] District, Building Yields
+- [ ] Specialist Yields, Slots
+- Changes to trade
+  - [ ] Capacity change from techs, civics, com hubs (base, per 15/30/40/50 pop)
 
 Ideas:
 - [x] Trade routes yields should balance food/production: Urban cities get food but lose production from trade routes. Green districts (aquaeduct, bath, neighbourhood, mbanza, dam) make a city more urban. Urbanization of trade route destination also affects yields: Urban destinations reduce food gain for origin, but increase production gain. Green districts also increase gold, both as origin and destination. This means there are roughly four trade scenarious (U = "urban", R = "rural", only origin receives yields):
@@ -27,7 +47,7 @@ Ideas:
 - [x] International vs. domestic trade: Production and food yields now come from both kinds and mostly depend on urbanization. International trade routes are slightly more gold efficient, domestic trade routes are more food/production efficient (green districts give more gold as international than as domestic destination, city center gives food and production as domestic destination, gold as international destination).
 - [x] Trade route capacity should come from commercial district only, should give 1 straightaway, then additional ones based on population (maybe at 15/30/40/50)
 - [x] Some techs/civics should give trade route capacity (maybe 3/3 across both trees, including the one from Foreign Trade)
-- [ ] As the player advance through the tech tree, trade routes should become slightly more food/production efficient (mitigating production/food loss for U2R/R2U trade route origins and boosting their benefits)
+- [x] As the player advance through the tech tree, trade routes should become slightly more food/production efficient (mitigating production/food loss for U2R/R2U trade route origins and boosting their benefits)
 - [x] Rebalance encampment and harbor districts/buildings to be kind of jack-of-all-trades, giving flat bonus food, production and gold
 - [x] Make encampment and harbor district and buildings give some housing as well (maybe 1/1/1/2)
 - [x] Move GPP generation from districts/buildings to specialists
