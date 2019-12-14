@@ -5,6 +5,19 @@
 
 -- this file deals with changing the yields of trade routes
 
+----------------------
+-- GlobalParameters --
+----------------------
+
+UPDATE GlobalParameters
+SET Value = 1
+WHERE Name = 'TRADE_ROUTE_GOLD_PER_ORIGIN_DISTRICT';
+
+UPDATE GlobalParameters
+SET Value = 1
+WHERE Name = 'TRADE_ROUTE_GOLD_PER_DESTINATION_DISTRICT';
+
+
 -------------------------------
 -- District_TradeRouteYields --
 -------------------------------
