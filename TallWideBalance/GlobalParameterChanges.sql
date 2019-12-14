@@ -22,5 +22,5 @@ WHERE Name = 'CULTURE_PERCENTAGE_YIELD_PER_POP';
 -- districts
 
 UPDATE GlobalParameters
-SET Value = 5
+SET Value = 4.5
 WHERE Name = 'DISTRICT_POPULATION_REQUIRED_PER';

@@ -31,6 +31,7 @@ To-test:
   - [ ] Triangular Trade
   - [ ] Collectivization
   - [ ] Ecommerce
+- [ ] DISTRICT_POPULATION_REQUIRED_PER value 4.5 valid?
 - [ ] GPP from citizens
 - [ ] Population Yields
 - [ ] District, Building Yields
