@@ -137,8 +137,8 @@ VALUES
 ---------------------------
 
 -- delete affected rows
-DELETE Building_YieldChanges
-FROM Building_YieldChanges JOIN Mak_BuildingYields ON Building_YieldChanges.BuildingType = Mak_BuildingYields.Name;
+DELETE FROM Building_YieldChanges 
+WHERE BuildingType IN (SELECT BuildingType FROM Building_YieldChanges JOIN Mak_BuildingYields ON BuildingType = Name);
 
 -- insert new values
 INSERT INTO Building_YieldChanges (BuildingType, YieldType, YieldChange)
@@ -149,8 +149,8 @@ SELECT Name, Yield, Value FROM Mak_BuildingYields;
 -----------------------------------------
 
 -- delete affected rows
-DELETE Building_YieldChangesBonusWithPower
-FROM Building_YieldChangesBonusWithPower JOIN Mak_BuildingPowerYields ON Building_YieldChangesBonusWithPower.BuildingType = Mak_BuildingPowerYields.Name;
+DELETE FROM Building_YieldChangesBonusWithPower 
+WHERE BuildingType IN (SELECT BuildingType FROM Building_YieldChangesBonusWithPower JOIN Mak_BuildingPowerYields ON BuildingType = Name);
 
 -- insert new values
 INSERT INTO Building_YieldChangesBonusWithPower (BuildingType, YieldType, YieldChange)
@@ -162,11 +162,11 @@ SELECT Name, Yield, Value FROM Mak_BuildingPowerYields;
 
 -- delete dar e mehr row
 DELETE FROM Building_YieldsPerEra
-WHERE BuildingType = 'BUILDING_DAR_E_MEHR'
+WHERE BuildingType = 'BUILDING_DAR_E_MEHR';
 
 -- delete affected rows
-DELETE Building_YieldsPerEra
-FROM Building_YieldsPerEra JOIN Mak_BuildingYieldsPerEra ON Building_YieldsPerEra.BuildingType = Mak_BuildingYieldsPerEra.Name;
+DELETE FROM Building_YieldsPerEra 
+WHERE BuildingType IN (SELECT BuildingType FROM Building_YieldsPerEra JOIN Mak_BuildingYieldsPerEra ON BuildingType = Name);
 
 -- insert new values
 INSERT INTO Building_YieldsPerEra (BuildingType, YieldType, YieldChange)
@@ -178,11 +178,11 @@ SELECT Name, Yield, Value FROM Mak_BuildingYieldsPerEra;
 
 -- delete coal power plant row
 DELETE FROM Building_YieldDistrictCopies
-WHERE BuildingType = 'BUILDING_COAL_POWER_PLANT'
+WHERE BuildingType = 'BUILDING_COAL_POWER_PLANT';
 
 -- delete affected rows
-DELETE Building_YieldDistrictCopies
-FROM Building_YieldDistrictCopies JOIN Mak_BuildingDistrictYieldCopies ON Building_YieldDistrictCopies.BuildingType = Mak_BuildingDistrictYieldCopies.Name;
+DELETE FROM Building_YieldDistrictCopies 
+WHERE BuildingType IN (SELECT BuildingType FROM Building_YieldDistrictCopies JOIN Mak_BuildingDistrictYieldCopies ON BuildingType = Name);
 
 -- insert new values
 INSERT INTO Building_YieldDistrictCopies (BuildingType, OldYieldType, NewYieldType)
@@ -214,7 +214,7 @@ WHERE BuildingType = 'BUILDING_SHOPPING_MALL';
 
 -- make tier 3 buildings of non religion primary districts regional
 UPDATE Buildings
-SET RegionRange = 6
+SET RegionalRange = 6
 WHERE BuildingType IN
 (
 	'BUILDING_RESEARCH_LAB',
@@ -230,7 +230,7 @@ WHERE BuildingType IN
 
 -- make tier 3 buildings of entertainment districts regional
 UPDATE Buildings
-SET RegionRange = 9
+SET RegionalRange = 9
 WHERE BuildingType IN
 (
 	'BUILDING_STADIUM',

@@ -124,7 +124,7 @@ VALUES
 ---------------
 
 -- linear district modifiers
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
+INSERT INTO Modifiers (ModifierId, ModifierType)
 SELECT 'MAK_'||Name||'_LINEAR_YIELD', 'MAK_MODIFIER_LINEAR_YIELD_FROM_POPULATION' FROM Mak_Districts;
 
 -- exponential district modifiers
@@ -132,8 +132,8 @@ INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
 SELECT 'MAK_'||Name||'_POPULATION_'||Size||'_YIELD', 'MAK_MODIFIER_EXPONENTIAL_YIELD_FROM_POPULATION', 'MAK_REQUIRES_POPULATION_'||Size FROM Mak_Districts, Mak_PopulationSizes;
 
 -- linear building modifiers
-INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
-SELECT 'MAK_'||Name||'_LINEAR_YIELD', 'MAK_MODIFIER_LINEAR_YIELD_FROM_POPULATION', NULL FROM Mak_Buildings;
+INSERT INTO Modifiers (ModifierId, ModifierType)
+SELECT 'MAK_'||Name||'_LINEAR_YIELD', 'MAK_MODIFIER_LINEAR_YIELD_FROM_POPULATION' FROM Mak_Buildings;
 
 -- exponential building modifiers
 INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId)
@@ -216,7 +216,7 @@ SELECT Name,  'MAK_'||Name||'_POPULATION_'||Size||'_YIELD' FROM Mak_Districts, M
 -----------------------
 
 -- linear building modifiers
-INSERT INTO BuildingModifiers (DistrictType, ModifierId)
+INSERT INTO BuildingModifiers (BuildingType, ModifierId)
 SELECT Name,  'MAK_'||Name||'_LINEAR_YIELD' FROM Mak_Buildings;
 
 -- exponential building modifiers
@@ -224,7 +224,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId)
 SELECT Name,  'MAK_'||Name||'_POPULATION_'||Size||'_YIELD' FROM Mak_Buildings, Mak_PopulationSizes;
 
 -- linear power building modifiers
-INSERT INTO BuildingModifiers (DistrictType, ModifierId)
+INSERT INTO BuildingModifiers (BuildingType, ModifierId)
 SELECT Name,  'MAK_'||Name||'_LINEAR_YIELD' FROM Mak_BuildingsPower;
 
 -- exponential power building modifiers
