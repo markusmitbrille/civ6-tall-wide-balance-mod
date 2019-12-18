@@ -10,11 +10,11 @@
 ----------------------
 
 UPDATE GlobalParameters
-SET Value = 1
+SET Value = 0
 WHERE Name = 'TRADE_ROUTE_GOLD_PER_ORIGIN_DISTRICT';
 
 UPDATE GlobalParameters
-SET Value = 1
+SET Value = 0
 WHERE Name = 'TRADE_ROUTE_GOLD_PER_DESTINATION_DISTRICT';
 
 
@@ -29,12 +29,13 @@ DELETE FROM District_TradeRouteYields;
 INSERT INTO District_TradeRouteYields (DistrictType, YieldType, YieldChangeAsOrigin, YieldChangeAsDomesticDestination, YieldChangeAsInternationalDestination)
 VALUES
 	('DISTRICT_CITY_CENTER',	'YIELD_FOOD',			 0.0,	 2.0,	 0.0),
-	('DISTRICT_CITY_CENTER',	'YIELD_GOLD',			 0.0,	 0.0,	 4.0),
+	('DISTRICT_CITY_CENTER',	'YIELD_PRODUCTION',		 0.0,	 2.0,	 0.0),
+	('DISTRICT_CITY_CENTER',	'YIELD_GOLD',			 0.0,	 0.0,	 5.0),
 	('DISTRICT_AQUEDUCT',		'YIELD_GOLD',			 1.0,	 1.0,	 1.0),
 	('DISTRICT_BATH',			'YIELD_GOLD',			 1.0,	 1.0,	 1.0),
-	('DISTRICT_DAM',			'YIELD_GOLD',			 2.0,	 2.0,	 2.0),
-	('DISTRICT_NEIGHBORHOOD',	'YIELD_GOLD',			 1.0,	 1.0,	 1.0),
-	('DISTRICT_MBANZA',			'YIELD_GOLD',			 1.0,	 1.0,	 1.0),
+	('DISTRICT_DAM',			'YIELD_GOLD',			 3.0,	 3.0,	 3.0),
+	('DISTRICT_NEIGHBORHOOD',	'YIELD_GOLD',			 2.0,	 2.0,	 2.0),
+	('DISTRICT_MBANZA',			'YIELD_GOLD',			 2.0,	 2.0,	 2.0),
 	('DISTRICT_AQUEDUCT',		'YIELD_FOOD',			 1.0,	-1.0,	-1.0),
 	('DISTRICT_BATH',			'YIELD_FOOD',			 1.0,	-1.0,	-1.0),
 	('DISTRICT_DAM',			'YIELD_FOOD',			 2.0,	-2.0,	-2.0),

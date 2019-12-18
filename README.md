@@ -49,7 +49,7 @@ Ideas:
 - [x] Move GPP generation from districts/buildings to specialists
 - [ ] GPs should always have a universally good benefit
  - Look into giving them a second activated ability, as a kind of alternative, would be especially cool for great writers/artists/musicians, when you don't want the great work
-- [ ] Make wall production and maybe other buildings boostable by builders (Building_BuildChargeProductions), so a central city with uber-production can distribute it somewhat
+- [x] Make wall production and maybe other buildings boostable by builders (Building_BuildChargeProductions), so a central city with uber-production can distribute it somewhat
 - [x] Make all resources harvestable
 - [ ] Look into possibilities for a science/culture catch-up mechanic
  - Passive Science/Culture: gain a percentage of the difference between your science/culture and the player with the most of that yield. Only met players are considered. Greater percentage the more techs/civics you are behind.
