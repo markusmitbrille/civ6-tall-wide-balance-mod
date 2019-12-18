@@ -21,7 +21,7 @@
 </Associations>]]></AssociationData>
     <AssemblyName>TallWideBalance</AssemblyName>
     <RootNamespace>TallWideBalance</RootNamespace>
-    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File priority="9">PopRequirements.sql</File></UpdateDatabase><UpdateDatabase id="Gameplay"><File>GlobalParameterChanges.sql</File><File>YieldChanges.sql</File><File>TradeChanges.sql</File><File>SpecialistChanges.sql</File><File>GrowthChanges.sql</File><File>GreatPersonPointChanges.sql</File><File>PolicyCardChanges.sql</File><File>HarvestChanges.sql</File><File>BuilderChanges.sql</File></UpdateDatabase><UpdateDatabase id="Gameplay"><File>PopulationYield.sql</File></UpdateDatabase></InGameActions>]]></InGameActionData>
+    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File priority="9">PopRequirements.sql</File></UpdateDatabase><UpdateDatabase id="Gameplay"><File>GlobalParameterChanges.sql</File><File>YieldChanges.sql</File><File>TradeChanges.sql</File><File>SpecialistChanges.sql</File><File>GrowthChanges.sql</File><File>GreatPersonPointChanges.sql</File><File>PolicyCardChanges.sql</File><File>HarvestChanges.sql</File><File>BuilderChanges.sql</File><File>LocalizationChanges.sql</File></UpdateDatabase><UpdateDatabase id="Gameplay"><File>PopulationYield.sql</File></UpdateDatabase><UpdateDatabase id="Localization"><File>Localization.sql</File></UpdateDatabase></InGameActions>]]></InGameActionData>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
@@ -40,6 +40,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="HarvestChanges.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Localization.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LocalizationChanges.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="PolicyCardChanges.sql">

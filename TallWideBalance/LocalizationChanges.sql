@@ -1,0 +1,77 @@
+-- LocalizationChanges
+-- Author: makak
+-- DateCreated: 2019-12-18 11:55:17
+--------------------------------------------------------------
+
+UPDATE Technologies
+SET Description = 'LOC_TECH_MILITARY_ENGINEERING_DESCRIPTION'
+WHERE TechnologyType = 'TECH_MILITARY_ENGINEERING';
+
+UPDATE Technologies
+SET Description = 'LOC_TECH_RADIO_DESCRIPTION'
+WHERE TechnologyType = 'TECH_RADIO';
+
+UPDATE Technologies
+SET Description = 'LOC_TECH_COMBINED_ARMS_DESCRIPTION'
+WHERE TechnologyType = 'TECH_COMBINED_ARMS';
+
+UPDATE Technologies
+SET Description = 'LOC_TECH_CURRENCY_DESCRIPTION'
+WHERE TechnologyType = 'TECH_CURRENCY';
+
+UPDATE Technologies
+SET Description = 'LOC_TECH_BANKING_DESCRIPTION'
+WHERE TechnologyType = 'TECH_BANKING';
+
+UPDATE Technologies
+SET Description = 'LOC_TECH_ECONOMICS_DESCRIPTION'
+WHERE TechnologyType = 'TECH_ECONOMICS';
+
+UPDATE Technologies
+SET Description = 'LOC_CIVIC_GUILDS_DESCRIPTION'
+WHERE TechnologyType = 'CIVIC_GUILDS';
+
+---------------
+-- Buildings --
+---------------
+
+UPDATE Buildings
+SET Description = 'LOC_BUILDING_GRANARY_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_GRANARY';
+
+UPDATE Buildings
+SET Description = 'LOC_BUILDING_LIBRARY_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_LIBRARY';
+
+UPDATE Buildings
+SET Description = 'LOC_BUILDING_UNIVERSITY_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_UNIVERSITY';
+
+UPDATE Buildings
+SET Description = 'LOC_BUILDING_RESEARCH_LAB_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_RESEARCH_LAB';
+
+UPDATE Buildings
+SET Description = 'LOC_BUILDING_AMPHITHEATER_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_AMPHITHEATER';
+
+UPDATE Buildings
+SET Description = 'LOC_BUILDING_BROADCAST_CENTER_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_BROADCAST_CENTER';
+
+UPDATE Buildings
+SET Description = 'LOC_BUILDING_BANK_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_BANK';
+
+UPDATE Buildings
+SET Description = 'LOC_BUILDING_STOCK_EXCHANGE_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_STOCK_EXCHANGE';
+
+UPDATE Buildings
+SET Description = 'LOC_BUILDING_WORKSHOP_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_WORKSHOP';
+
+-- dar e mehr
+UPDATE Buildings
+SET Description = NULL
+WHERE BuildingType = 'LOC_BUILDING_DAR_E_MEHR_DESCRIPTION';
