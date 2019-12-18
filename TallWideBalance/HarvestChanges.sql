@@ -5,6 +5,10 @@
 
 -- this file deals with making all resources harvestable
 
+-----------------------
+-- Resource_Harvests --
+-----------------------
+
 -- truncate table
 DELETE FROM Resource_Harvests;
 
