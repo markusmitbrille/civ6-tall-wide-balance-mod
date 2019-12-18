@@ -51,7 +51,7 @@ VALUES
 --------------------
 
 -- trade route capacity increases from civics
-INSERT INTO District_TradeRouteYields (CivicType, ModifierId)
+INSERT INTO CivicModifiers (CivicType, ModifierId)
 VALUES
 	('CIVIC_GUILDS',		'CIVIC_GRANT_ONE_TRADE_ROUTE'),
 	('CIVIC_COLONIALISM',	'CIVIC_GRANT_ONE_TRADE_ROUTE');
@@ -61,7 +61,7 @@ VALUES
 -------------------------
 
 -- trade route capacity increases from technologies
-INSERT INTO District_TradeRouteYields (TechnologyType, ModifierId)
+INSERT INTO TechnologyModifiers (TechnologyType, ModifierId)
 VALUES
 	('TECH_CURRENCY',		'CIVIC_GRANT_ONE_TRADE_ROUTE'),
 	('TECH_BANKING',		'CIVIC_GRANT_ONE_TRADE_ROUTE'),
