@@ -13,11 +13,11 @@ To-do:
 - [x] Balance policies for district adjacency/building yield bonuses (and add cards for specialists)
 - [ ] Balance leader/civ traits that touch on district/building yields
 - [x] Balance growth (housing, food)
-- [ ] Balance amenities from buildings/wonders and districts
 - [ ] Look into whether any world congress stuff needs to be changed
-- [ ] Localization: Rename Neighborhood to Municipality, change Civilopedia entry to reflect new concept
-- [ ] Do localization for Urban Sprawl
-- [ ] Do localization for all changes
+- [x] Localization: Rename Neighborhood to Municipality, change Civilopedia entry to reflect new concept
+- [x] Do localization for Urban Sprawl
+- [x] Do localization for all changes
+- [ ] Fix localization
 
 To-test:
 - Changes to policies
