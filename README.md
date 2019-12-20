@@ -50,6 +50,8 @@ Ideas:
  - Look into giving them a second activated ability, as a kind of alternative, would be especially cool for great writers/artists/musicians, when you don't want the great work
 - [x] Make wall production and maybe other buildings boostable by builders (Building_BuildChargeProductions), so a central city with uber-production can distribute it somewhat
 - [x] Make all resources harvestable
+- [ ] Make nuclear fallout non-clearable
+- [ ] Give settlers a vision/movement buff on turn 1
 - [ ] Look into possibilities for a science/culture catch-up mechanic
  - Passive Science/Culture: gain a percentage of the difference between your science/culture and the player with the most of that yield. Only met players are considered. Greater percentage the more techs/civics you are behind.
  - If passive science/culture is not feasible from a technical standpoint, maybe somehow do it via trade routes?
