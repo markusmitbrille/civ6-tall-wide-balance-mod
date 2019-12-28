@@ -12,19 +12,19 @@
 -- food and growth
 
 UPDATE GlobalParameters
-SET Value = 2
+SET Value = 2		-- default 2
 WHERE Name = 'CITY_FOOD_CONSUMPTION_PER_POPULATION';
 
 UPDATE GlobalParameters
-SET Value = 15
+SET Value = 15		-- default 15
 WHERE Name = 'CITY_GROWTH_THRESHOLD';
 
 UPDATE GlobalParameters
-SET Value = 8
+SET Value = 8		-- default 8
 WHERE Name = 'CITY_GROWTH_MULTIPLIER';
 
 UPDATE GlobalParameters
-SET Value = 1.5
+SET Value = 1.5		-- default 1.5
 WHERE Name = 'CITY_GROWTH_EXPONENT';
 
 -- amenities
