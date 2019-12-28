@@ -211,7 +211,6 @@ UPDATE Buildings
 SET Description = 'MAK_LOC_BUILDING_POWER_PLANT_DESCRIPTION'
 WHERE BuildingType = 'BUILDING_POWER_PLANT';
 
-
 -- remove special dar e mehr description
 UPDATE Buildings
 SET Description = NULL
