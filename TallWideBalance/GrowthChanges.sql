@@ -108,6 +108,15 @@ WHERE BuildingType IN
 	'BUILDING_SEAPORT'
 );
 
+UPDATE Buildings
+SET Housing = 3
+WHERE BuildingType IN
+(
+	'BUILDING_HANGING_GARDENS',
+	'BUILDING_TEMPLE_ARTEMIS',
+	'BUILDING_GREAT_BATH'
+);
+
 ---------------
 -- Districts --
 ---------------
