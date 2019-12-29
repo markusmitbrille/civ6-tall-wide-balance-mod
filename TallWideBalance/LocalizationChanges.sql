@@ -159,6 +159,22 @@ UPDATE Districts
 SET Description = 'MAK_LOC_DISTRICT_MBANZA_DESCRIPTION'
 WHERE DistrictType = 'DISTRICT_MBANZA';
 
+--------------
+-- Projects --
+--------------
+
+UPDATE Projects
+SET Description = 'MAK_LOC_PROJECT_CONVERT_REACTOR_TO_COAL'
+WHERE ProjectType = 'PROJECT_CONVERT_REACTOR_TO_COAL';
+
+UPDATE Projects
+SET Description = 'MAK_LOC_PROJECT_CONVERT_REACTOR_TO_OIL'
+WHERE ProjectType = 'PROJECT_CONVERT_REACTOR_TO_OIL';
+
+UPDATE Projects
+SET Description = 'MAK_LOC_PROJECT_CONVERT_REACTOR_TO_URANIUM'
+WHERE ProjectType = 'PROJECT_CONVERT_REACTOR_TO_URANIUM';
+
 ---------------
 -- Buildings --
 ---------------

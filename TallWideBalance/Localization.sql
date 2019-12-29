@@ -133,6 +133,19 @@ VALUES
 -- mbanza
 	('en_US', 'MAK_LOC_DISTRICT_MBANZA_DESCRIPTION',						'A district unique to Kongo that can only be constructed in Rainforest or Woods. Replaces the Neighborhood district but is available earlier and cheaper to build. Provides +4 [ICON_Housing] Housing , +2 [ICON_Food] Food, and +4 [ICON_Gold] Gold, regardless of Appeal.'),
 
+--------------
+-- Projects --
+--------------
+
+-- convert reactor to coal
+	('en_US', 'MAK_LOC_PROJECT_CONVERT_REACTOR_TO_COAL',					''),
+
+-- convert reactor to oil
+	('en_US', 'MAK_LOC_PROJECT_CONVERT_REACTOR_TO_OIL',						''),
+
+-- convert reactor to uranium
+	('en_US', 'MAK_LOC_PROJECT_CONVERT_REACTOR_TO_URANIUM',					''),
+
 ---------------
 -- Buildings --
 ---------------
