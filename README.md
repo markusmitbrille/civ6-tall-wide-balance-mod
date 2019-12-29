@@ -11,13 +11,12 @@ To-do:
 - [x] Balance food/production yields based on districts, add missing district trade route yields
 - [x] Balance policies for trade route yields
 - [x] Balance policies for district adjacency/building yield bonuses (and add cards for specialists)
-- [ ] Balance leader/civ traits that touch on district/building yields
 - [x] Balance growth (housing, food)
-- [ ] Look into whether any world congress stuff needs to be changed
 - [x] Localization: Rename Neighborhood to Municipality, change Civilopedia entry to reflect new concept
 - [x] Do localization for Urban Sprawl
 - [x] Do localization for all changes
-- [ ] Fix localization
+- [x] Fix localization
+- [ ] Look into whether any world congress stuff needs to be changed
 
 To-test:
 - Changes to policies
@@ -26,12 +25,17 @@ To-test:
   - [ ] Triangular Trade
   - [ ] Collectivization
   - [ ] Ecommerce
-- [ ] GPP from citizens
+  - [ ] Rationalism
+  - [ ] Grand Opera
+  - [ ] Free Market
+  - [ ] Simultaneum
+- [ ] GPP from specialists
 - [ ] Population Yields
 - [ ] District, Building Yields
 - [ ] Specialist Yields, Slots
 - Changes to trade
-  - [ ] Capacity change from techs, civics, com hubs (base, per 15/30/40/50 pop)
+  - [ ] Capacity change from techs (currency, banking, economics), civics (foreign trade, guilds, colonialism), com hubs (base, per 15/30/40/50 pop)
+- [ ] Localization
 
 Ideas:
 - [x] Trade routes yields should balance food/production: Urban cities get food but lose production from trade routes. Green districts (aquaeduct, bath, neighbourhood, mbanza, dam) make a city more urban. Urbanization of trade route destination also affects yields: Urban destinations reduce food gain for origin, but increase production gain. Green districts also increase gold, both as origin and destination. This means there are roughly four trade scenarious (U = "urban", R = "rural", only origin receives yields):
