@@ -6,24 +6,55 @@
 INSERT INTO LocalizedText (Language, Tag, Text)
 VALUES
 
+-------------
+-- Beliefs --
+-------------
+
+-- wat
+	('en_US', 'MAK_LOC_BELIEF_WAT_DESCRIPTION',								'Allows construction of Wats (+9 [ICON_Faith] Faith, bonus [ICON_Science] Science).'),
+
+-- dar e mehr
+	('en_US', 'MAK_LOC_BELIEF_DAR_E_MEHR_DESCRIPTION',						'Allows construction of Dar-e Mehrs (+9 [ICON_Faith] Faith, bonus [ICON_Culture] Culture).'),
+
+-- synagogue
+	('en_US', 'MAK_LOC_BELIEF_SYNAGOGUE_DESCRIPTION',						'Allows construction of Synagogues (+9 [ICON_Faith] Faith, bonus [ICON_Gold] Gold).'),
+
+-- meeting house
+	('en_US', 'MAK_LOC_BELIEF_MEETING_HOUSE_DESCRIPTION',					'Allows construction of Meeting Houses (+9 [ICON_Faith] Faith, bonus [ICON_Production] Production).'),
+
+-- gurdwara
+	('en_US', 'MAK_LOC_BELIEF_GURDWARA_DESCRIPTION',						'Allows construction of Gurdwaras (+9 [ICON_Faith] Faith, bonus [ICON_Food] Food).'),
+
+-- cathedral
+	('en_US', 'MAK_LOC_BELIEF_CATHEDRAL_DESCRIPTION',						'Allows construction of Cathedrals (+9 [ICON_Faith] Faith, 1 slot for religious art).'),
+
+-- mosque
+	('en_US', 'MAK_LOC_BELIEF_MOSQUE_DESCRIPTION',							'Allows construction of Mosques (+9 [ICON_Faith] Faith). Missionaries and Apostles +1 Spread.'),
+
+-- pagoda
+	('en_US', 'MAK_LOC_BELIEF_PAGODA_DESCRIPTION',							'Allows construction of Pagodas (+9 [ICON_Faith] Faith, +1 [ICON_Housing] Housing).'),
+
+-- stupa
+	('en_US', 'MAK_LOC_BELIEF_STUPA_DESCRIPTION',							'Allows construction of Stupas (+9 [ICON_Faith] Faith, +1 [ICON_Amenities] Amenity).'),
+
 --------------
 -- Policies --
 --------------
 
--- Urban Sprawl
+-- urban sprawl
 	('en_US', 'MAK_LOC_POLICY_URBAN_SPRAWL_NAME',							'Urban Sprawl'),
 	('en_US', 'MAK_LOC_POLICY_URBAN_SPRAWL_DESCRIPTION',					'+100% [ICON_Production] Production toward Neighborhood districts.'),
 
--- Public Transport
+-- public transport
 	('en_US', 'MAK_LOC_POLICY_PUBLIC_TRANSPORT_DESCRIPTION',				'+1 [ICON_Amenities] Amenity per Neighborhood district.'),
 
--- Collectivization
+-- collectivization
 	('en_US', 'MAK_LOC_POLICY_COLLECTIVIZATION_DESCRIPTION',				'+2 [ICON_Food] Food and +4 [ICON_Production] Production from domestic [ICON_TradeRoute] Trade Routes.'),
 
--- Triangular Trade
+-- triangular trade
 	('en_US', 'MAK_LOC_POLICY_TRIANGULAR_TRADE_DESCRIPTION',				'+1 [ICON_Food] Food, +1 [ICON_Production] Production and +4 [ICON_Gold] Gold from all [ICON_TradeRoute] Trade Routes.'),
 
--- Ecommerce
+-- ecommerce
 	('en_US', 'MAK_LOC_POLICY_ECOMMERCE_DESCRIPTION',						'+2 [ICON_Food] Food, +2 [ICON_Production] Production and +6 [ICON_Gold] Gold from all [ICON_TradeRoute] Trade Routes.'),
 
 ------------------
@@ -111,6 +142,21 @@ VALUES
 
 -- water mill
 	('en_US', 'MAK_LOC_BUILDING_WATER_MILL_DESCRIPTION',					'[ICON_RESOURCE_RICE] Rice and [ICON_RESOURCE_WHEAT] Wheat resources gain +1 [ICON_Food] Food each. +1 additional [ICON_Food] Food and [ICON_Production] Production for each era since constructed or last repaired. City must be adjacent to a River.'),
+
+-- wat
+	('en_US', 'MAK_LOC_BUILDING_WAT_DESCRIPTION',							'Bonus [ICON_Science] Science equal to the adjacency bonus of the Holy Site district.'),
+
+-- dar e mehr
+	('en_US', 'MAK_LOC_BUILDING_DAR_E_MEHR_DESCRIPTION',					'Bonus [ICON_Culture] Culture equal to the adjacency bonus of the Holy Site district.'),
+
+-- synagogue
+	('en_US', 'MAK_LOC_BUILDING_SYNAGOGUE_DESCRIPTION',						'Bonus [ICON_Gold] Gold equal to the adjacency bonus of the Holy Site district.'),
+
+-- meeting house
+	('en_US', 'MAK_LOC_BUILDING_MEETING_HOUSE_DESCRIPTION',					'Bonus [ICON_Production] Production equal to the adjacency bonus of the Holy Site district.'),
+
+-- gurdwara
+	('en_US', 'MAK_LOC_BUILDING_GURDWARA_DESCRIPTION',						'Bonus [ICON_Food] Food equal to the adjacency bonus of the Holy Site district.'),
 
 -- stadium
 	('en_US', 'MAK_LOC_BUILDING_STADIUM_DESCRIPTION',						'Bonus [ICON_Amenity] Amenities extend to each city center within 9 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a city center do not provide additional bonuses. +2 [ICON_Tourism] if the city [ICON_Citizen] population is 10 or higher and +5 [ICON_Tourism] if the city [ICON_Citizen] population is 20 or higher.'),

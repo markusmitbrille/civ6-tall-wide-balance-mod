@@ -3,6 +3,46 @@
 -- DateCreated: 2019-12-18 11:55:17
 --------------------------------------------------------------
 
+-------------
+-- Beliefs --
+-------------
+
+UPDATE Beliefs
+SET Description = 'MAK_LOC_BELIEF_WAT_DESCRIPTION'
+WHERE BeliefType = 'BELIEF_WAT';
+
+UPDATE Beliefs
+SET Description = 'MAK_LOC_BELIEF_DAR_E_MEHR_DESCRIPTION'
+WHERE BeliefType = 'BELIEF_DAR_E_MEHR';
+
+UPDATE Beliefs
+SET Description = 'MAK_LOC_BELIEF_SYNAGOGUE_DESCRIPTION'
+WHERE BeliefType = 'BELIEF_SYNAGOGUE';
+
+UPDATE Beliefs
+SET Description = 'MAK_LOC_BELIEF_MEETING_HOUSE_DESCRIPTION'
+WHERE BeliefType = 'BELIEF_MEETING_HOUSE';
+
+UPDATE Beliefs
+SET Description = 'MAK_LOC_BELIEF_GURDWARA_DESCRIPTION'
+WHERE BeliefType = 'BELIEF_GURDWARA';
+
+UPDATE Beliefs
+SET Description = 'MAK_LOC_BELIEF_CATHEDRAL_DESCRIPTION'
+WHERE BeliefType = 'BELIEF_CATHEDRAL';
+
+UPDATE Beliefs
+SET Description = 'MAK_LOC_BELIEF_MOSQUE_DESCRIPTION'
+WHERE BeliefType = 'BELIEF_MOSQUE';
+
+UPDATE Beliefs
+SET Description = 'MAK_LOC_BELIEF_PAGODA_DESCRIPTION'
+WHERE BeliefType = 'BELIEF_PAGODA';
+
+UPDATE Beliefs
+SET Description = 'MAK_LOC_BELIEF_STUPA_DESCRIPTION'
+WHERE BeliefType = 'BELIEF_STUPA';
+
 --------------
 -- Policies --
 --------------
@@ -130,6 +170,26 @@ WHERE BuildingType = 'BUILDING_GRANARY';
 UPDATE Buildings
 SET Description = 'MAK_LOC_BUILDING_WATER_MILL_DESCRIPTION'
 WHERE BuildingType = 'BUILDING_WATER_MILL';
+
+UPDATE Buildings
+SET Description = 'MAK_LOC_BUILDING_WAT_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_WAT';
+
+UPDATE Buildings
+SET Description = 'MAK_LOC_BUILDING_DAR_E_MEHR_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_DAR_E_MEHR';
+
+UPDATE Buildings
+SET Description = 'MAK_LOC_BUILDING_SYNAGOGUE_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_SYNAGOGUE';
+
+UPDATE Buildings
+SET Description = 'MAK_LOC_BUILDING_MEETING_HOUSE_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_MEETING_HOUSE';
+
+UPDATE Buildings
+SET Description = 'MAK_LOC_BUILDING_GURDWARA_DESCRIPTION'
+WHERE BuildingType = 'BUILDING_GURDWARA';
 
 UPDATE Buildings
 SET Description = 'MAK_LOC_BUILDING_STADIUM_DESCRIPTION'
