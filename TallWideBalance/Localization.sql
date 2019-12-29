@@ -172,7 +172,7 @@ VALUES
 	('en_US', 'MAK_LOC_BUILDING_GURDWARA_DESCRIPTION',						'Bonus [ICON_Food] Food equal to the adjacency bonus of the Holy Site district.'),
 
 -- stadium
-	('en_US', 'MAK_LOC_BUILDING_STADIUM_DESCRIPTION',						'Bonus [ICON_Amenity] Amenities extend to each city center within 9 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a city center do not provide additional bonuses. +2 [ICON_Tourism] if the city [ICON_Citizen] population is 10 or higher and +5 [ICON_Tourism] if the city [ICON_Citizen] population is 20 or higher.'),
+	('en_US', 'MAK_LOC_BUILDING_STADIUM_DESCRIPTION',						'Bonus [ICON_Amenities] Amenities extend to each city center within 9 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a city center do not provide additional bonuses. +2 [ICON_Tourism] if the city [ICON_Citizen] population is 10 or higher and +5 [ICON_Tourism] if the city [ICON_Citizen] population is 20 or higher.'),
 
 -- library
 	('en_US', 'MAK_LOC_BUILDING_LIBRARY_DESCRIPTION',						'Bonus [ICON_Science] Science based on city [ICON_Citizen] population, scaling exponentially.'),
