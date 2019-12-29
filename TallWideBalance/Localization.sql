@@ -210,6 +210,9 @@ VALUES
 -- bank
 	('en_US', 'MAK_LOC_BUILDING_BANK_DESCRIPTION',							'Bonus [ICON_Gold] Gold based on city [ICON_Citizen] population, scaling exponentially.'),
 
+-- grand bazaar
+	('en_US', 'MAK_LOC_BUILDING_GRAND_BAZAAR_DESCRIPTION',					'A building unique to the Ottomans. Accumulate 1 extra Strategic resource for every different type of Strategic resource this city has improved. Receive 1 [ICON_Amentities] Amenity for every Luxury resource this city has improved.[NEWLINE][NEWLINE]Bonus [ICON_Gold] Gold based on city [ICON_Citizen] population, scaling exponentially.'),
+
 -- stock exchange
 	('en_US', 'MAK_LOC_BUILDING_STOCK_EXCHANGE_DESCRIPTION',				'Bonus [ICON_Gold] Gold extends to all City Centers within 6 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a city center do not provide additional bonuses.[NEWLINE][NEWLINE]Bonus [ICON_Gold] Gold based on city [ICON_Citizen] population, scaling exponentially.'),
 
