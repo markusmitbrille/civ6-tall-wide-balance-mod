@@ -57,6 +57,18 @@ VALUES
 -- ecommerce
 	('en_US', 'MAK_LOC_POLICY_ECOMMERCE_DESCRIPTION',						'+2 [ICON_Food] Food, +2 [ICON_Production] Production and +6 [ICON_Gold] Gold from all [ICON_TradeRoute] Trade Routes.'),
 
+-- rationalism
+	('en_US', 'MAK_LOC_POLICY_RATIONALISM_DESCRIPTION',						'Extra [ICON_Science] Science from buildings in Campuses: +50% if city [ICON_Citizen] population is 15 or higher, +50% if district has at least +3 adjacency bonus.'),
+
+-- grand opera
+	('en_US', 'MAK_LOC_POLICY_GRAND_OPERA_DESCRIPTION',						'Extra [ICON_Culture] Culture from buildings in Theater Squares: +50% if city [ICON_Citizen] population is 15 or higher, +50% if district has at least +3 adjacency bonus.'),
+
+-- free market
+	('en_US', 'MAK_LOC_POLICY_FREE_MARKET_DESCRIPTION',						'Extra [ICON_Gold] Gold from buildings in Commercial Hubs: +50% if city [ICON_Citizen] population is 15 or higher, +50% if district has at least +4 adjacency bonus.'),
+
+-- simultaneum
+	('en_US', 'MAK_LOC_POLICY_SIMULTANEUM_DESCRIPTION',						'Extra [ICON_Faith] Faith from buildings in Holy Sites: +50% if city [ICON_Citizen] population is 15 or higher, +50% if district has at least +3 adjacency bonus.'),
+
 ------------------
 -- Technologies --
 ------------------
@@ -154,7 +166,7 @@ VALUES
 	('en_US', 'MAK_LOC_BUILDING_GRANARY_DESCRIPTION',						'+1 additional [ICON_Food] Food for each era since constructed or last repaired.'),
 
 -- water mill
-	('en_US', 'MAK_LOC_BUILDING_WATER_MILL_DESCRIPTION',					'[ICON_RESOURCE_RICE] Rice and [ICON_RESOURCE_WHEAT] Wheat resources gain +1 [ICON_Food] Food each. +1 additional [ICON_Food] Food and [ICON_Production] Production for each era since constructed or last repaired. City must be adjacent to a River.'),
+	('en_US', 'MAK_LOC_BUILDING_WATER_MILL_DESCRIPTION',					'[ICON_RESOURCE_RICE] Rice and [ICON_RESOURCE_WHEAT] Wheat resources gain +1 [ICON_Food] Food each.[NEWLINE]+1 additional [ICON_Food] Food and [ICON_Production] Production for each era since constructed or last repaired.[NEWLINE]City must be adjacent to a River.'),
 
 -- wat
 	('en_US', 'MAK_LOC_BUILDING_WAT_DESCRIPTION',							'Bonus [ICON_Science] Science equal to the adjacency bonus of the Holy Site district.'),
@@ -171,8 +183,14 @@ VALUES
 -- gurdwara
 	('en_US', 'MAK_LOC_BUILDING_GURDWARA_DESCRIPTION',						'Bonus [ICON_Food] Food equal to the adjacency bonus of the Holy Site district.'),
 
+-- zoo
+	('en_US', 'MAK_LOC_BUILDING_ZOO_DESCRIPTION',							'Bonus [ICON_Amenities] Amenities extend to each city center within 9 tiles. This bonus applies once to a city, and multiple copies of this building within 9 tiles of a city center do not provide additional bonuses.[NEWLINE][NEWLINE]+1 [ICON_Science] Science to each Rainforest and Marsh tile in this city.'),
+
 -- stadium
-	('en_US', 'MAK_LOC_BUILDING_STADIUM_DESCRIPTION',						'Bonus [ICON_Amenities] Amenities extend to each city center within 9 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a city center do not provide additional bonuses. +2 [ICON_Tourism] if the city [ICON_Citizen] population is 10 or higher and +5 [ICON_Tourism] if the city [ICON_Citizen] population is 20 or higher.'),
+	('en_US', 'MAK_LOC_BUILDING_STADIUM_DESCRIPTION',						'Bonus [ICON_Amenities] Amenities extend to each city center within 9 tiles. This bonus applies once to a city, and multiple copies of this building within 9 tiles of a city center do not provide additional bonuses.[NEWLINE][NEWLINE]+2 [ICON_Tourism] if the city [ICON_Citizen] population is 10 or higher and +5 [ICON_Tourism] if the city [ICON_Citizen] population is 20 or higher.'),
+
+-- lighthouse
+	('en_US', 'MAK_LOC_BUILDING_LIGHTHOUSE_DESCRIPTION',					'+25% combat experience for all naval units trained in this city. +1 [ICON_Food] Food on all Coastal tiles for this city. +2 [ICON_Housing] Housing if this city is adjacent to the coast.'),
 
 -- library
 	('en_US', 'MAK_LOC_BUILDING_LIBRARY_DESCRIPTION',						'Bonus [ICON_Science] Science based on city [ICON_Citizen] population, scaling exponentially.'),

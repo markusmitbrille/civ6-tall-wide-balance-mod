@@ -228,12 +228,14 @@ WHERE BuildingType IN
 	'BUILDING_POWER_PLANT'
 );
 
--- make tier 3 buildings of entertainment districts regional
+-- make tier 2 and 3 buildings of entertainment districts regional
 UPDATE Buildings
 SET RegionalRange = 9
 WHERE BuildingType IN
 (
+	'BUILDING_ZOO',
 	'BUILDING_STADIUM',
+	'BUILDING_AQUARIUM',
 	'BUILDING_AQUATICS_CENTER'
 );
 
