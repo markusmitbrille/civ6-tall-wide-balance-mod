@@ -290,4 +290,14 @@ WHERE BuildingType = 'BUILDING_POWER_PLANT';
 -- remove special dar e mehr description
 UPDATE Buildings
 SET Description = NULL
-WHERE BuildingType = 'LOC_BUILDING_DAR_E_MEHR_DESCRIPTION';
+WHERE BuildingType = 'BUILDING_DAR_E_MEHR';
+
+-- remove special food market description
+UPDATE Buildings
+SET Description = NULL
+WHERE BuildingType = 'BUILDING_FOOD_MARKET';
+
+-- remove special shopping mall description
+UPDATE Buildings
+SET Description = NULL
+WHERE BuildingType = 'BUILDING_SHOPPING_MALL';
