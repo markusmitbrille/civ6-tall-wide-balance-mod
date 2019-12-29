@@ -128,7 +128,7 @@ VALUES
 ---------------
 
 -- commercial hub
-	('en_US', 'MAK_LOC_DISTRICT_COMMERCIAL_HUB_DESCRIPTION',		'A district in your city specializing in finance and trade. +1 [ICON_TradeRoute] Trade Route capacity. Increases [ICON_TradeRoute] Trade Route capacity further, based on city [ICON_Citizen] population:[NEWLINE] • +1 [ICON_TradeRoute] Trade Route capacity at 15 [ICON_Citizen] population[NEWLINE] • +1 [ICON_TradeRoute] Trade Route capacity at 30 [ICON_Citizen] population[NEWLINE] • +1 [ICON_TradeRoute] Trade Route capacity at 40 [ICON_Citizen] population[NEWLINE] • +1 [ICON_TradeRoute] Trade Route capacity at 50 [ICON_Citizen] population'),
+	('en_US', 'MAK_LOC_DISTRICT_COMMERCIAL_HUB_DESCRIPTION',				'A district in your city specializing in finance and trade. +1 [ICON_TradeRoute] Trade Route capacity. Increases [ICON_TradeRoute] Trade Route capacity further, based on city [ICON_Citizen] population:[NEWLINE] • +1 [ICON_TradeRoute] Trade Route capacity at 15 [ICON_Citizen] population[NEWLINE] • +1 [ICON_TradeRoute] Trade Route capacity at 30 [ICON_Citizen] population[NEWLINE] • +1 [ICON_TradeRoute] Trade Route capacity at 40 [ICON_Citizen] population[NEWLINE] • +1 [ICON_TradeRoute] Trade Route capacity at 50 [ICON_Citizen] population'),
 
 -- mbanza
 	('en_US', 'MAK_LOC_DISTRICT_MBANZA_DESCRIPTION',						'A district unique to Kongo that can only be constructed in Rainforest or Woods. Replaces the Neighborhood district but is available earlier and cheaper to build. Provides +4 [ICON_Housing] Housing , +2 [ICON_Food] Food, and +4 [ICON_Gold] Gold, regardless of Appeal.'),
