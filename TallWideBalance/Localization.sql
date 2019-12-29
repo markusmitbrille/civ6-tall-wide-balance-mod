@@ -138,13 +138,13 @@ VALUES
 --------------
 
 -- convert reactor to coal
-	('en_US', 'MAK_LOC_PROJECT_CONVERT_REACTOR_TO_COAL',					''),
+	('en_US', 'MAK_LOC_PROJECT_CONVERT_REACTOR_TO_COAL',					'Decommissions the current Power Plant in this city, and replaces it with the Coal Power Plant.[NEWLINE][NEWLINE]Coal Power Plant:[NEWLINE]Automatically converts any amount of [ICON_RESOURCE_COAL] Coal into [ICON_Power] Power for cities within 6 tiles that need it each turn, at the rate of:[NEWLINE]• 1 [ICON_RESOURCE_COAL] Coal to 4 [ICON_Power] Power[NEWLINE]• Heavy CO2 into the atmosphere[NEWLINE][NEWLINE]Bonus [ICON_Production] Production extends to all City Centers within 6 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a city center do not provide additional bonuses.[NEWLINE][NEWLINE]Bonus [ICON_Production] Production based on city [ICON_Citizen] population, scaling exponentially.'),
 
 -- convert reactor to oil
-	('en_US', 'MAK_LOC_PROJECT_CONVERT_REACTOR_TO_OIL',						''),
+	('en_US', 'MAK_LOC_PROJECT_CONVERT_REACTOR_TO_OIL',						'Decommissions the current Power Plant in this city, and replaces it with the Oil Power Plant.[NEWLINE][NEWLINE]Oil Power Plant:[NEWLINE]Automatically converts any amount of [ICON_RESOURCE_OIL] Oil into [ICON_Power] Power for cities within 6 tiles that need it each turn, at the rate of:[NEWLINE]• 1 [ICON_RESOURCE_OIL] Oil to 4 [ICON_Power] Power[NEWLINE]• Moderate CO2 into the atmosphere[NEWLINE][NEWLINE]Bonus [ICON_Production] Production extends to all City Centers within 6 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a city center do not provide additional bonuses.[NEWLINE][NEWLINE]Bonus [ICON_Production] Production based on city [ICON_Citizen] population, scaling exponentially.'),
 
 -- convert reactor to uranium
-	('en_US', 'MAK_LOC_PROJECT_CONVERT_REACTOR_TO_URANIUM',					''),
+	('en_US', 'MAK_LOC_PROJECT_CONVERT_REACTOR_TO_URANIUM',					'Decommissions the current Power Plant in this city, and replaces it with the Nuclear Power Plant.[NEWLINE][NEWLINE]Nuclear Power Plant:[NEWLINE]Automatically converts any amount of [ICON_RESOURCE_URANIUM] Uranium into [ICON_Power] Power for cities within 6 tiles that need it each turn, at the rate of:[NEWLINE]• 1 [ICON_RESOURCE_OIL] Oil to 16 [ICON_Power] Power[NEWLINE]• Miniscule CO2 into the atmosphere[NEWLINE][NEWLINE]Bonus [ICON_Production] Production and [ICON_Science] Science extends to all City Centers within 6 tiles. This bonus applies once to a city, and multiple copies of this building within 6 tiles of a city center do not provide additional bonuses.[NEWLINE][NEWLINE]Bonus [ICON_Production] Production based on city [ICON_Citizen] population, scaling exponentially.[NEWLINE][NEWLINE]Once built, as a Nuclear Plant ages, there is an increased chance for a Nuclear Accident to occur.'),
 
 ---------------
 -- Buildings --
